@@ -1,0 +1,7 @@
+{
+  "name": "discipuluz-web",
+  "short_name": "discipuluz-web",
+  "description": "Discipuluz website",
+  "start_url": "/",
+  "display": "standalone"
+}
