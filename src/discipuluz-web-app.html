@@ -1,7 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
-<link rel="import" href="discipuluz-utils/discipuluz-localize.html">
+<link rel="import" href="discipuluz-pages/discipuluz-contato.html">
+<link rel="import" href="discipuluz-utils/discipuluz-localize-behavior.html">
 
 
 <dom-module id="discipuluz-web-app">
@@ -20,7 +21,17 @@
 
 	<script>
 		Polymer({
-			is: 'discipuluz-web-app'
+			is: 'discipuluz-web-app',
+
+			behaviors: [
+				Discipuluz.AppLocalizeBehavior
+			],
+
+			properties: {
+				file: {
+					value: 'pages'
+				}
+			}
 		});
 	</script>
 </dom-module>

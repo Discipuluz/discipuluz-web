@@ -1,0 +1,43 @@
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+
+<script>
+
+window.Discipuluz = window.Discipuluz || {}
+
+Discipuluz.AppLocalizeBehaviorImpl = {
+
+	is: 'discipuluz-localize',
+	
+	behaviors: [
+		Polymer.AppLocalizeBehavior
+	],
+
+	properties: {
+		/**
+		 * Private
+		 * The language used for translation.
+		 * Portuguese by default 
+		 */
+		language: {
+			type: String,
+			value: 'pt'
+		},
+		/**
+		 * The path to the dictionary of localized messages. The format is the
+		 * same as the `resources` array, only saved as an external json file.
+		 * Note that using a path will populate the `resources` property, and override
+		 * the previous data.
+		 */
+		file: {
+			type: String
+		}
+	},
+
+	attached: function() {
+		this.loadResources(this.resolveUrl('../locales/' + this.file + '.json'))
+	}
+}
+
+Discipuluz.AppLocalizeBehavior = [Polymer.AppLocalizeBehavior, Discipuluz.AppLocalizeBehaviorImpl]
+
+</script>
