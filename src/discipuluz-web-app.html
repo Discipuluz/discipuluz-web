@@ -1,8 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
-<link rel="import" href="discipuluz-pages/discipuluz-contato.html">
-<link rel="import" href="discipuluz-utils/discipuluz-localize-behavior.html">
+<link rel="import" href="discipuluz-layout/discipuluz-header.html">
 
 
 <dom-module id="discipuluz-web-app">
@@ -10,22 +9,32 @@
 		<style>
 			:host {
 				display: block;
-				--paper-input-container-focus-color: #78B333;
-				--primary-bg-color: rgb(251, 251, 251);
-				--primary-title-color: #98D353;
+				--primary-bg-color: rgb(241, 241, 241);
+				--primary-title-color: rgb(152,211,83);
 				--primary-text-color: rgb(91, 91, 91);
+
+				--secondary-bg-color: rgb(21, 21, 21);
+				--secondary-title-color: rgb(241,241,241);
+				--secondary-text-color: rgb(241,241,241);
+
+				--paper-input-container-focus-color: var(--primary-title-color);
+			}
+			.bg{
+				position:fixed;
+					top: 0;
+					left: 0;
+				width: 100%;
 			}
 		</style>
-		[[localize('pages-home-title')]]
+		
+		<img class="bg" src="../images/bg.jpg" />
+		<discipuluz-header></discipuluz-header>
+
 	</template>
 
 	<script>
 		Polymer({
 			is: 'discipuluz-web-app',
-
-			behaviors: [
-				Discipuluz.AppLocalizeBehavior
-			],
 
 			properties: {
 				file: {
