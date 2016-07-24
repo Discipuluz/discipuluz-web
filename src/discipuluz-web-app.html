@@ -1,7 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 
 <link rel="import" href="discipuluz-layout/discipuluz-header.html">
+<link rel="import" href="discipuluz-layout/discipuluz-content.html">
 
 
 <dom-module id="discipuluz-web-app">
@@ -18,6 +21,8 @@
 				--secondary-text-color: rgb(241,241,241);
 
 				--paper-input-container-focus-color: var(--primary-title-color);
+				
+				font-family: 'Roboto', sans-serif;
 			}
 			.bg{
 				position:fixed;
@@ -25,10 +30,19 @@
 					left: 0;
 				width: 100%;
 			}
+			.bg.small{
+				margin-top: 0;
+			}
+			.bg.large{
+				margin-top: -30vw;
+			}
 		</style>
 		
-		<img class="bg" src="../images/bg.jpg" />
+		<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
+		
+		<img class$="bg [[_size(smallScreen)]]" src="../images/bg.jpg" />
 		<discipuluz-header></discipuluz-header>
+		<discipuluz-content></discipuluz-content>
 
 	</template>
 
@@ -40,6 +54,10 @@
 				file: {
 					value: 'pages'
 				}
+			},
+
+			_size: function(smallScreen){
+				return smallScreen ? 'small' : 'large'
 			}
 		});
 	</script>

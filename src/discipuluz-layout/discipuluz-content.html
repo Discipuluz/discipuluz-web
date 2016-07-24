@@ -1,0 +1,55 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-logo.html">
+<link rel="import" href="../discipuluz-pages/discipuluz-contato.html">
+
+<dom-module id="discipuluz-content">
+	<template>
+	<style is="custom-style" include="iron-flex iron-flex-factors">
+		:host{
+			position: relative;
+			z-index: 0;
+		}
+		.content {
+            padding: 1rem;
+			background-color: var(--primary-background-color);
+			color: var(--primary-text-color);
+			--paper-card-header-color: var(--primary-text-color);
+		}
+	</style>
+
+	<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
+	
+    <div class="layout horizontal">
+		<div class="flex-1" hidden="[[smallScreen]]"></div>
+        <div class="flex-1">
+            <discipuluz-logo white fill="width"></discipuluz-logo>
+        </div>
+		<div class="flex-1" hidden="[[smallScreen]]"></div>
+    </div>
+
+	<div class="layout horizontal">
+		<paper-card class="flex-8 content" elevation="2">
+			<discipuluz-contato></discipuluz-contato>
+		</paper-card>
+	</div>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-content',
+
+		properties: {
+			page: {
+				type: String,
+				notify: true,
+			}
+		},
+	})
+	</script>
+</dom-module>
