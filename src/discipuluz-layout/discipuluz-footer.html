@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+
+<link rel="import" href="../discipuluz-utils/discipuluz-localize-behavior.html">
+<link rel="import" href="../discipuluz-utils/fa-iconset.html">
+
+<dom-module id="discipuluz-footer">
+	<template>
+	<style is="custom-style" include="iron-flex iron-flex-factors">
+		:host{
+			width: 100%;
+		}
+        app-toolbar{
+            background-color: var(--secondary-bg-color);
+            color:var(--secondary-text-color);
+        }
+        a{
+            color:var(--secondary-text-color);
+        }
+        a:hover{
+            opacity: 0.5;
+        }
+	</style>
+
+	<app-toolbar>
+
+        <div class="flex-9">
+            [[localize('discipuluz-copyright')]]
+        </div>
+
+        <div class="flex-1">
+            <a href="https://www.facebook.com/Discipuluz-1668078560134957/">
+                <iron-icon class="flex" icon="fa-brand:facebook-square"></iron-icon>
+            </a>
+        </div>
+    </app-toolbar>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-footer',
+
+        behaviors: [
+            Discipuluz.AppLocalizeBehavior
+        ],
+
+		properties: {
+			page: {
+				type: String,
+				notify: true,
+			},
+            file: {
+                value: 'discipuluz'
+            }
+		},
+        _padding: function(smallScreen){
+            return smallScreen ? 0 : 3 
+        }
+	})
+	</script>
+</dom-module>
