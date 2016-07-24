@@ -1,23 +1,29 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../discipuluz-pages/discipuluz-contato.html">
+
 <dom-module id="discipuluz-web-app">
   <template>
     <style>
       :host {
         display: block;
+        --paper-input-container-focus-color: #78B333;
+        --primary-bg-color: rgb(251, 251, 251);
+        --primary-title-color: #98D353;
+        --primary-text-color: rgb(91, 91, 91);
+      }
+      div input {
+        width: 20rem;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    <discipuluz-contato></discipuluz-contato>
   </template>
 
   <script>
     Polymer({
 
-      is: 'discipuluz-web-app',
+      is: 'discipuluz-web-app'
 
-      properties: {
-      },
-
-    });
+    })
   </script>
 </dom-module>
