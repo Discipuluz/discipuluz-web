@@ -1,5 +1,8 @@
 {
     "pt": {
-        "pages-home-title": "Início"
+        "pages-home-title": "Início",
+        "pages-survey-title":  "Questionário",
+        "pages-blog-title":  "Visite nosso Blog",
+        "pages-contact-title":  "Converse Conosco"
     }
 }

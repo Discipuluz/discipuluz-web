@@ -1,0 +1,45 @@
+<dom-module id="discipuluz-logo">
+	<template>
+
+        <style>
+            :host{
+                position: relative;
+                height: 100%;
+                text-align: center;
+            }
+            .logo{
+                position: relative;
+                    top: 25%;
+                height: 50%;
+            }
+        </style>
+
+        <img class="logo" src="[[src]]" />
+
+	</template>
+	<script>
+		Polymer({
+			is: 'discipuluz-logo',
+
+			properties: {
+				white: {
+					type: Boolean,
+					value: false
+				},
+				src: {
+					type: String,
+					computed: '_mountSource(white)'
+				}
+			},
+
+			_mountSource: function(white){
+				if(white){
+					return '../../images/logo/logo-white.png'
+				}else {
+					return '../../images/logo/logo.png'
+				}
+			}
+
+		})
+	</script>
+</dom-module>

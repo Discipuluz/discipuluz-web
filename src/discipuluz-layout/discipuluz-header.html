@@ -1,0 +1,152 @@
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+
+<link rel="import" href="../discipuluz-utils/discipuluz-localize-behavior.html">
+<link rel="import" href="../discipuluz-components/discipuluz-logo.html">
+
+<dom-module id="discipuluz-header">
+	<template>
+	<style is="custom-style" include="iron-flex iron-flex-factors">
+		:host{
+			position: relative;
+			z-index: 10;
+		}
+		app-header {
+			@apply(--layout-fixed-top);
+			color: var(--secondary-text-color);
+
+			background-color: var(--secondary-bg-color);
+
+            opacity: 0.5;
+		}
+		app-drawer {
+			z-index: 10;
+            --app-drawer-content-container: {
+                background-color: var(--secondary-bg-color);
+            };
+		}
+		.drawer-title{
+			border-bottom: solid 1px var(--secondary-text-color);
+		}
+		.drawer-option{
+			transition: background .3s;
+		}
+		.drawer-option:hover{
+			opacity: 0.4;
+		}
+		.drawer-option.iron-selected {
+			opacity: 0.5;
+		}
+		paper-tabs{
+			--paper-tabs-selection-bar-color: var(--primary-title-color); 	
+		}
+		paper-tab{
+			padding: 0;
+		}
+		iron-icon{
+			cursor: pointer;
+		}
+        a {
+            @apply(--layout-horizontal);
+            @apply(--layout-center-center);
+            
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: var(--secondary-text-color);
+        }
+	</style>
+
+	<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
+
+	<!-- 
+	--	HEADER
+	-->
+	<app-header-layout>
+		<app-header shadow fixed>
+			<app-toolbar sticky>
+	            <template is="dom-if" if="[[smallScreen]]">
+				    <paper-icon-button icon="icons:menu" class="flex-1" on-tap="_openDrawer"></paper-icon-button>
+                    <div class="flex-12"></div>
+                    <div class="flex-12"></div>
+	            </template>
+	            <template is="dom-if" if="[[!smallScreen]]">
+                    <paper-tabs selectable="paper-tab" attr-for-selected="name" selected="{{page}}" class="flex-1">
+                        <paper-tab name="inicio" link>
+                            <a href="/" tabindex="-1">[[localize('pages-home-title')]]</a>
+                        </paper-tab>
+                        <paper-tab name="questionario" link>
+                            <a href="/questionario" tabindex="-1">[[localize('pages-survey-title')]]</a>
+                        </paper-tab>
+                        <paper-tab name="blog" link>
+                            <a href="/blog" tabindex="-1">[[localize('pages-blog-title')]]</a>
+                        </paper-tab>
+                        <paper-tab name="contato" link>
+                            <a href="/contato" tabindex="-1">[[localize('pages-contact-title')]]</a>
+                        </paper-tab>
+                    </paper-tabs>
+	            </template>
+			</app-toolbar>
+		</app-header>
+	</app-header-layout>
+
+	<app-drawer opened="{{isDrawerOpen}}">
+		<app-toolbar class="drawer-title layout horizontal">
+			<paper-icon-button icon="icons:arrow-back" class="flex-1" on-tap="_closeDrawer"></paper-icon-button>
+			<discipuluz-logo class="flex-7"></discipuluz-logo>
+		</app-toolbar>
+		<iron-selector attr-for-selected="name" selected="{{page}}">
+            <app-toolbar class="drawer-option" name="inicio">
+                <a href="/" tabindex="-1">[[localize('pages-home-title')]]</a>
+            </app-toolbar>
+            <app-toolbar class="drawer-option" name="questionario">
+                <a href="/questionario" tabindex="-1">[[localize('pages-survey-title')]]</a>
+            </app-toolbar>
+            <app-toolbar class="drawer-option" name="blog">
+                <a href="/blog" tabindex="-1">[[localize('pages-blog-title')]]</a>
+            </app-toolbar>
+            <app-toolbar class="drawer-option" name="contato">
+                <a href="/contato" tabindex="-1">[[localize('pages-contact-title')]]</a>
+            </app-toolbar>
+		</iron-selector>
+	</app-drawer>
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-header',
+
+        behaviors: [
+            Discipuluz.AppLocalizeBehavior
+        ],
+
+		properties: {
+			page: {
+                type: String,
+                notify: false,
+            },
+            file: {
+                value: 'pages'
+            }
+		},
+
+		_openDrawer: function(){
+			this.set('isDrawerOpen', true)
+		},
+
+		_closeDrawer: function(){
+			this.set('isDrawerOpen', false)
+		}
+	})
+	</script>
+</dom-module>
