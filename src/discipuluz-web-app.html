@@ -1,4 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
@@ -39,13 +41,21 @@
 				margin-top: -30vw;
 			}
 		</style>
+
+		<app-location route="{{route}}"></app-location>
+		<app-route
+			route="{{route}}"
+			pattern="/:page"
+			data="{{routeData}}"
+			tail="{{subroute}}">
+		</app-route>
 		
 		<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
 		
 		<img class$="bg [[_size(smallScreen)]]" src="../images/bg.jpg" />
-		<discipuluz-header></discipuluz-header>
-		<discipuluz-content></discipuluz-content>
-		<discipuluz-footer></discipuluz-footer>
+		<discipuluz-header page="{{page}}"></discipuluz-header>
+		<discipuluz-content page="{{page}}"></discipuluz-content>
+		<discipuluz-footer page="{{page}}"></discipuluz-footer>
 
 	</template>
 
@@ -54,13 +64,33 @@
 			is: 'discipuluz-web-app',
 
 			properties: {
-				file: {
-					value: 'pages'
+				page: {
+					type: String,
+					observer: '_changePage'
+				},
+				route: {
+					type: Object,
+					observer: '_changeRoute'
 				}
 			},
 
 			_size: function(smallScreen){
 				return smallScreen ? 'small' : 'large'
+			},
+			
+			_changeRoute: function(){
+				if(!this.routeData.page){
+					this.set('page', 'inicio')
+				}else {
+					this.set('page', this.routeData.page)
+				}
+			},
+			_changePage: function(){
+				if(this.page === 'inicio'){
+					this.set('route.path', '/')
+				}else{
+					this.set('route.path', '/' + this.page)
+				}
 			}
 		});
 	</script>
