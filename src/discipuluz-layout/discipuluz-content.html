@@ -15,10 +15,9 @@
 			z-index: 0;
 		}
 		.content {
-            padding: 1rem;
 			background-color: var(--primary-background-color);
 			color: var(--primary-text-color);
-			--paper-card-header-color: var(--primary-text-color);
+			--paper-card-header-color: var(--primary-title-color);
 		}
 	</style>
 
@@ -33,7 +32,7 @@
     </div>
 
 	<div class="layout horizontal">
-		<paper-card class="flex-8 content" elevation="2">
+		<paper-card class="flex-8 content" elevation="2" style="padding: [[_padding(smallScreen)]]rem;">
 			<discipuluz-contato></discipuluz-contato>
 		</paper-card>
 	</div>
@@ -50,6 +49,9 @@
 				notify: true,
 			}
 		},
+        _padding: function(smallScreen){
+            return smallScreen ? 0 : 3 
+        }
 	})
 	</script>
 </dom-module>
