@@ -1,0 +1,22 @@
+<dom-module id="html-escape">
+    
+    <template>
+    </template>
+    
+	<script>
+        Polymer({
+            is: 'html-escape',
+
+            properties: {
+                text: {
+                    type: String,
+                    observer: 'escape'
+                }
+            },
+
+            escape: function(){
+                this.innerHTML = this.text
+            }
+        })
+	</script>
+</dom-module>
