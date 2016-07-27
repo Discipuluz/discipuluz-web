@@ -83,16 +83,16 @@
 	            <template is="dom-if" if="[[!smallScreen]]">
                     <paper-tabs selectable="paper-tab" attr-for-selected="name" selected="{{page}}" class="flex-1">
                         <paper-tab name="inicio" link>
-                            <a href="/" tabindex="-1">[[localize('pages-home-title')]]</a>
+                            <a href="/" tabindex="-1">[[localize('home-title')]]</a>
                         </paper-tab>
                         <paper-tab name="questionario" link>
-                            <a href="/questionario" tabindex="-1">[[localize('pages-survey-title')]]</a>
+                            <a href="/questionario" tabindex="-1">[[localize('survey-title')]]</a>
                         </paper-tab>
                         <paper-tab name="blog" link>
-                            <a href="/blog" tabindex="-1">[[localize('pages-blog-title')]]</a>
+                            <a href="/blog" tabindex="-1">[[localize('blog-title')]]</a>
                         </paper-tab>
                         <paper-tab name="contato" link>
-                            <a href="/contato" tabindex="-1">[[localize('pages-contact-title')]]</a>
+                            <a href="/contato" tabindex="-1">[[localize('contact-title')]]</a>
                         </paper-tab>
                     </paper-tabs>
 	            </template>
@@ -107,16 +107,16 @@
 		</app-toolbar>
 		<iron-selector attr-for-selected="name" selected="{{page}}">
             <app-toolbar class="drawer-option" name="inicio">
-                <a href="/" tabindex="-1">[[localize('pages-home-title')]]</a>
+                <a href="/" tabindex="-1">[[localize('home-title')]]</a>
             </app-toolbar>
             <app-toolbar class="drawer-option" name="questionario">
-                <a href="/questionario" tabindex="-1">[[localize('pages-survey-title')]]</a>
+                <a href="/questionario" tabindex="-1">[[localize('survey-title')]]</a>
             </app-toolbar>
             <app-toolbar class="drawer-option" name="blog">
-                <a href="/blog" tabindex="-1">[[localize('pages-blog-title')]]</a>
+                <a href="/blog" tabindex="-1">[[localize('blog-title')]]</a>
             </app-toolbar>
             <app-toolbar class="drawer-option" name="contato">
-                <a href="/contato" tabindex="-1">[[localize('pages-contact-title')]]</a>
+                <a href="/contato" tabindex="-1">[[localize('contact-title')]]</a>
             </app-toolbar>
 		</iron-selector>
 	</app-drawer>
