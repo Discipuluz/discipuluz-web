@@ -25,7 +25,7 @@
 
 				--paper-input-container-color: var(--primary-text-color);
 				--paper-input-container-focus-color: var(--primary-title-color);
-				
+
 				font-family: 'Roboto', sans-serif;
 			}
 			.bg{
@@ -33,12 +33,6 @@
 					top: 0;
 					left: 0;
 				width: 100%;
-			}
-			.bg.small{
-				margin-top: 0;
-			}
-			.bg.large{
-				margin-top: -30vw;
 			}
 		</style>
 
@@ -49,10 +43,10 @@
 			data="{{routeData}}"
 			tail="{{subroute}}">
 		</app-route>
-		
+
 		<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
-		
-		<img class$="bg [[_size(smallScreen)]]" src="../images/bg.jpg" />
+
+		<img class="bg" src="../images/bg[[_size(smallScreen)]].png" />
 		<discipuluz-header page="{{page}}"></discipuluz-header>
 		<discipuluz-content page="{{page}}"></discipuluz-content>
 		<discipuluz-footer page="{{page}}"></discipuluz-footer>
@@ -75,9 +69,9 @@
 			},
 
 			_size: function(smallScreen){
-				return smallScreen ? 'small' : 'large'
+				return smallScreen ? '-mobile' : '-desktop'
 			},
-			
+
 			_changeRoute: function(){
 				if(!this.routeData.page){
 					this.set('page', 'inicio')

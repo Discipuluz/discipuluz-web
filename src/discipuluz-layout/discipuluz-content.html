@@ -6,7 +6,8 @@
 
 <link rel="import" href="../discipuluz-utils/discipuluz-localize-behavior.html">
 <link rel="import" href="../discipuluz-components/discipuluz-logo.html">
-<link rel="import" href="../discipuluz-pages/discipuluz-contato.html">
+<link rel="import" href="../discipuluz-pages/discipuluz-contact.html">
+<link rel="import" href="../discipuluz-pages/discipuluz-home.html">
 
 <dom-module id="discipuluz-content">
 	<template>
@@ -16,7 +17,7 @@
 			z-index: 0;
 		}
 		.content {
-			background-color: var(--primary-background-color);
+			background-color: var(--primary-bg-color);;
 			color: var(--primary-text-color);
 			--paper-card-header-color: var(--primary-title-color);
 		}
@@ -33,7 +34,7 @@
 	</style>
 
 	<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
-	
+
     <div class="layout horizontal">
 		<div class="flex-1" hidden="[[smallScreen]]"></div>
         <div class="flex-1">
@@ -45,7 +46,8 @@
 	<div class="layout horizontal">
 		<paper-card class="flex-8 content" elevation="2" style="padding: [[_padding(smallScreen)]]rem;">
 			<iron-pages attr-for-selected="name" selected="{{page}}" class="flex">
-				<discipuluz-contato name="contato"></discipuluz-contato>
+				<discipuluz-home name="inicio"></discipuluz-home>
+				<discipuluz-contact name="contato"></discipuluz-contact>
 			</iron-pages>
 		</paper-card>
 	</div>
@@ -75,7 +77,7 @@
             }
 		},
         _padding: function(smallScreen){
-            return smallScreen ? 0 : 3 
+            return smallScreen ? 0 : 3
         }
 	})
 	</script>

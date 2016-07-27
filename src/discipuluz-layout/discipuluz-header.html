@@ -48,7 +48,7 @@
 			opacity: 0.5;
 		}
 		paper-tabs{
-			--paper-tabs-selection-bar-color: var(--primary-title-color); 	
+			--paper-tabs-selection-bar-color: var(--primary-title-color);
 		}
 		paper-tab{
 			padding: 0;
@@ -59,7 +59,7 @@
         a {
             @apply(--layout-horizontal);
             @apply(--layout-center-center);
-            
+
             height: 100%;
             width: 100%;
             text-decoration: none;
@@ -69,7 +69,7 @@
 
 	<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
 
-	<!-- 
+	<!--
 	--	HEADER
 	-->
 	<app-header-layout>
@@ -88,12 +88,12 @@
                         <paper-tab name="questionario" link>
                             <a href="/questionario" tabindex="-1">[[localize('pages-survey-title')]]</a>
                         </paper-tab>
-                        <paper-tab name="blog" link>
-                            <a href="/blog" tabindex="-1">[[localize('pages-blog-title')]]</a>
-                        </paper-tab>
                         <paper-tab name="contato" link>
                             <a href="/contato" tabindex="-1">[[localize('pages-contact-title')]]</a>
                         </paper-tab>
+												<paper-tab name="blog" link>
+														<a href="/blog" tabindex="-1">[[localize('pages-blog-title')]]</a>
+												</paper-tab>
                     </paper-tabs>
 	            </template>
 			</app-toolbar>
