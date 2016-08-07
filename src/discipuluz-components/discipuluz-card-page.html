@@ -1,0 +1,88 @@
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/device-icons.html">
+
+
+<dom-module id="discipuluz-card-page">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+		:host{
+			padding: 1rem;
+		}
+		.card-icon{
+			margin: 10px;
+		}
+		.myIcon{
+			width: 80px;
+			height: 80px;
+			color: var(--primary-title-color);
+		}
+		.card-content{
+			min-height: 12rem;
+		}
+		.card-content > p{
+			text-align: justify;
+		}
+		.flex-center-align {
+			@apply(--layout-horizontal);
+			@apply(--layout-center);
+			height: 120px;
+		}
+		paper-card{
+			min-height: 26rem;
+			width:100%;
+			background-color: var(--primary-bg-color);
+			--paper-card-header-color: var(--primary-title-color);
+		}
+		paper-button{
+			background-color: var(--primary-title-color);
+			color: white;
+			margin-top: 10px;
+		}
+		</style>
+
+		<paper-card>
+			<div class="layout vertical">
+				<div class$="[[responsiveClass('layout horizontal container flex-center-align', 'layout vertical')]]">
+					<div class="card-icon">
+						<template is="dom-if" if="[[isLargeScreen]]">
+							<div class="flex-1"></div>
+						</template>
+						<div class="flex-1 layout horizontal center-justified">
+							<iron-icon class="myIcon" icon="[[icon]]"></iron-icon>
+						</div>
+						<template is="dom-if" if="[[isLargeScreen]]">
+							<div class="flex-1"></div>
+						</template>
+					</div>
+					<div class="flex-2 layout horizontal center-justified card-title">
+						<h2>[[title]]</h2>
+					</div>
+				</div>
+				<div class="layout horizontal center-justified card-content">
+					<p><content></content></p>
+				</div>
+				<div class="layout horizontal center-justified card-actions">
+					<paper-button class$="[[responsiveClass('flex')]]">[[action]]</paper-button>
+				</div>
+			</div>
+		</paper-card>
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-card-page',
+
+		behaviors: [
+			Discipuluz.AppResponsiveBehavior
+		],
+
+		properties:{
+			icon:String,
+			title:String,
+			action:String
+		}
+	})
+	</script>
+</dom-module>
