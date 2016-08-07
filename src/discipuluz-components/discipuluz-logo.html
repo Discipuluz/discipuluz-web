@@ -1,23 +1,23 @@
 <dom-module id="discipuluz-logo">
 	<template>
 
-        <style>
-            :host{
-                height: 100%;
-                text-align: center;
-            }
-            .logo-height{
-                position: relative;
-                    top: 25%;
-                height: 50%;
-            }
-            .logo-width{
-                margin: 12% 0;
-                width: 100%;
-            }
-        </style>
+		<style>
+			:host{
+				height: 100%;
+				text-align: center;
+			}
+			.logo-height{
+				position: relative;
+					top: 25%;
+				height: 50%;
+			}
+			.logo-width{
+				margin: 12% 0;
+				width: 100%;
+			}
+		</style>
 
-        <img class$="logo-[[fill]]" src="[[src]]" />
+		<img class$="logo-[[fill]]" src="[[src]]" />
 
 	</template>
 	<script>
@@ -33,10 +33,10 @@
 					type: String,
 					computed: '_mountSource(white)'
 				},
-                fill: {
-                    type: String,
-                    value: 'height'
-                }
+				fill: {
+					type: String,
+					value: 'height'
+				}
 			},
 
 			_mountSource: function(white){

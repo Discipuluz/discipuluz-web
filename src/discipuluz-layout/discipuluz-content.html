@@ -1,13 +1,9 @@
 <link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 
-<link rel="import" href="../discipuluz-utils/discipuluz-localize-behavior.html">
 <link rel="import" href="../discipuluz-components/discipuluz-logo.html">
-<link rel="import" href="../discipuluz-pages/discipuluz-contact.html">
-<link rel="import" href="../discipuluz-pages/discipuluz-home.html">
 
 <dom-module id="discipuluz-content">
 	<template>
@@ -21,41 +17,42 @@
 			color: var(--primary-text-color);
 			--paper-card-header-color: var(--primary-title-color);
 		}
-        .moto{
-            margin: 0;
-            padding: 2rem;
-            background-color: var(--secondary-bg-color);
-            opacity: 0.4;
-        }
-        .moto > p{
-            font-size: 2rem;
-            color: var(--secondary-text-color);
-        }
+		.content.small {
+			padding: 0;
+		}
+		.content.large {
+			padding: 3rem;
+		}
+		.moto{
+			margin: 0;
+			padding: 2rem;
+			background-color: var(--secondary-bg-color);
+			opacity: 0.4;
+		}
+		.moto > p{
+			font-size: 2rem;
+			color: var(--secondary-text-color);
+		}
 	</style>
 
-	<iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
-
-    <div class="layout horizontal">
-		<div class="flex-1" hidden="[[smallScreen]]"></div>
-        <div class="flex-1">
-            <discipuluz-logo white fill="width"></discipuluz-logo>
-        </div>
-		<div class="flex-1" hidden="[[smallScreen]]"></div>
-    </div>
+	<div class="layout horizontal">
+		<div class="flex-1" hidden="[[isSmallScreen]]"></div>
+		<div class="flex-1">
+			<discipuluz-logo white fill="width"></discipuluz-logo>
+		</div>
+		<div class="flex-1" hidden="[[isSmallScreen]]"></div>
+	</div>
 
 	<div class="layout horizontal">
-		<paper-card class="flex-8 content" elevation="2" style="padding: [[_padding(smallScreen)]]rem;">
-			<iron-pages attr-for-selected="name" selected="{{page}}" class="flex">
-				<discipuluz-home name="inicio"></discipuluz-home>
-				<discipuluz-contact name="contato"></discipuluz-contact>
-			</iron-pages>
+		<paper-card class$="flex-8 content [[responsiveClass('small', 'large')]]" elevation="2">
+			<content></content>
 		</paper-card>
 	</div>
 
-    <div class="layout moto">
-        <p class="layout horizontal center-center">[[localize('moto')]]</p>
-        <p class="layout horizontal center-center">[[localize('moto-author')]]</p>
-    </div>
+	<div class="layout moto">
+		<p class="layout horizontal center-center">[[localize('moto')]]</p>
+		<p class="layout horizontal center-center">[[localize('moto-author')]]</p>
+	</div>
 
 	</template>
 
@@ -63,22 +60,20 @@
 	Polymer({
 		is: 'discipuluz-content',
 
-        behaviors: [
-            Discipuluz.AppLocalizeBehavior
-        ],
+		behaviors: [
+			Discipuluz.AppLocalizeBehavior,
+			Discipuluz.AppResponsiveBehavior
+		],
 
 		properties: {
 			page: {
 				type: String,
 				notify: true,
 			},
-            file: {
-                value: 'discipuluz'
-            }
-		},
-        _padding: function(smallScreen){
-            return smallScreen ? 0 : 3
-        }
+			file: {
+				value: 'discipuluz'
+			}
+		}
 	})
 	</script>
 </dom-module>

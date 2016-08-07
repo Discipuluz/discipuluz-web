@@ -1,11 +1,11 @@
 {
-    "pt": {
-      "title": "Contato",
-      "name-label": "Qual seu nome?",
-      "name-error": "Por favor, digite seu nome",
-      "email-label": "Qual seu email?",
-      "email-error": "Por favor, entre com um email válido",
-      "message-label": "Deixe sua mensagem para nós",
-      "message-error": "Por favor, digite uma mensagem"
-    }
+	"pt": {
+		"title": "Contato",
+		"name-label": "Qual seu nome?",
+		"name-error": "Por favor, digite seu nome",
+		"email-label": "Qual seu email?",
+		"email-error": "Por favor, entre com um email válido",
+		"message-label": "Deixe sua mensagem para nós",
+		"message-error": "Por favor, digite uma mensagem"
+	}
 }

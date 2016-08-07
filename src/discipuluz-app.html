@@ -1,0 +1,73 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/font-roboto/roboto.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+
+<link rel="import" href="discipuluz-utils/discipuluz-localize-behavior.html">
+<link rel="import" href="discipuluz-utils/discipuluz-responsive-behavior.html">
+
+<link rel="import" href="discipuluz-layout/discipuluz-header.html">
+<link rel="import" href="discipuluz-layout/discipuluz-content.html">
+<link rel="import" href="discipuluz-layout/discipuluz-footer.html">
+<link rel="import" href="discipuluz-layout/discipuluz-pages.html">
+<link rel="import" href="discipuluz-layout/discipuluz-page-list.html">
+
+<link rel="import" href="discipuluz-pages/discipuluz-home.html">
+<link rel="import" href="discipuluz-pages/discipuluz-contact.html">
+
+
+<dom-module id="discipuluz-app">
+	<template>
+		<style>
+			:host {
+				display: block;
+				--primary-bg-color: rgb(241, 241, 241);
+				--primary-title-color: rgb(152,211,83);
+				--primary-text-color: rgb(91, 91, 91);
+
+				--secondary-bg-color: rgb(21, 21, 21);
+				--secondary-title-color: rgb(241,241,241);
+				--secondary-text-color: rgb(241,241,241);
+
+				--paper-input-container-color: var(--primary-text-color);
+				--paper-input-container-focus-color: var(--primary-title-color);
+				
+				font-family: 'Roboto', sans-serif;
+			}
+			.bg{
+				position:fixed;
+					top: 0;
+					left: 0;
+				width: 100%;
+			}
+			.bg.small{
+				margin-top: 0;
+			}
+			.bg.large{
+				margin-top: -30vw;
+			}
+		</style>
+		
+		<app-location route="{{route}}"></app-location>
+
+		<img class$="bg [[responsiveClass('small', 'large')]]" src="../images/bg.jpg">
+		<discipuluz-header page="[[page]]"></discipuluz-header>
+		<discipuluz-content page="[[page]]">
+			<discipuluz-pages route="[[route]]" subroute="{{subroute}}" page="{{page}}">
+				<discipuluz-home name="inicio"></discipuluz-home>
+				<discipuluz-contact name="contato"></discipuluz-contact>
+			</discipuluz-pages>
+		</discipuluz-content>
+		<discipuluz-footer page="[[page]]"></discipuluz-footer>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'discipuluz-app',
+
+			behaviors: [
+				Discipuluz.AppResponsiveBehavior
+			]
+		});
+	</script>
+</dom-module>

@@ -9,30 +9,30 @@
 		:host{
 			width: 100%;
 		}
-        app-toolbar{
-            background-color: var(--secondary-bg-color);
-            color:var(--secondary-text-color);
-        }
-        a{
-            color:var(--secondary-text-color);
-        }
-        a:hover{
-            opacity: 0.5;
-        }
+		app-toolbar{
+			background-color: var(--secondary-bg-color);
+			color:var(--secondary-text-color);
+		}
+		a{
+			color:var(--secondary-text-color);
+		}
+		a:hover{
+			opacity: 0.5;
+		}
 	</style>
 
 	<app-toolbar>
 
-        <div class="flex-9">
-            [[localize('copyright')]]
-        </div>
+		<div class="flex-9">
+			[[localize('copyright')]]
+		</div>
 
-        <div class="flex-1">
-            <a href="https://www.facebook.com/Discipuluz-1668078560134957/">
-                <iron-icon class="flex" icon="fa-brand:facebook-square"></iron-icon>
-            </a>
-        </div>
-    </app-toolbar>
+		<div class="flex-1">
+			<a href="https://www.facebook.com/Discipuluz-1668078560134957/">
+				<iron-icon class="flex" icon="fa-brand:facebook-square"></iron-icon>
+			</a>
+		</div>
+	</app-toolbar>
 
 	</template>
 
@@ -40,22 +40,19 @@
 	Polymer({
 		is: 'discipuluz-footer',
 
-        behaviors: [
-            Discipuluz.AppLocalizeBehavior
-        ],
+		behaviors: [
+			Discipuluz.AppLocalizeBehavior
+		],
 
 		properties: {
 			page: {
 				type: String,
 				notify: true,
 			},
-            file: {
-                value: 'discipuluz'
-            }
-		},
-        _padding: function(smallScreen){
-            return smallScreen ? 0 : 3 
-        }
+			file: {
+				value: 'discipuluz'
+			}
+		}
 	})
 	</script>
 </dom-module>
