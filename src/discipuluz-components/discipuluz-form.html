@@ -1,0 +1,30 @@
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+
+<dom-module id="discipuluz-form">
+  <template>
+    <style>
+      paper-card{
+        width:100%;
+        background-color: var(--primary-bg-color);
+        border-left: solid 5px var(--primary-title-color);
+        --paper-card-header-color: var(--primary-title-color);
+      }
+    </style>
+
+    <paper-card heading="[[title]]">
+      <content></content>
+    </paper-card>
+
+  </template>
+  <script>
+  Polymer({
+    is: 'discipuluz-form',
+
+    properties:{
+      title:String
+    }
+  })
+  </script>
+
+</dom-module>
