@@ -1,29 +1,61 @@
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../discipuluz-components/discipuluz-card.html">
 
 <dom-module id="discipuluz-form">
 	<template>
-		<style>
-			paper-card{
-				width:100%;
-				background-color: var(--primary-bg-color);
-				border-left: solid 5px var(--primary-title-color);
-				--paper-card-header-color: var(--primary-title-color);
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+			iron-icon{
+				margin-left: 5px;
 			}
+			paper-button{
+				background-color: var(--primary-title-color);
+				color: white;
+				margin-top: 10px;
+			}
+
 		</style>
 
-		<paper-card heading="[[title]]">
-			<content></content>
-		</paper-card>
+		<form is="iron-form" method="post" action="[[url]]" on-iron-form-response="_formResponse" id="form">
+			<discipuluz-card title="[[title]]">
+				<div class="card-content">
+					<content></content>
+				</div>
+				<div class="card-actions">
+					<div class="layout horizontal end-justified">
+						<paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm"> 
+							[[buttonText]] <iron-icon icon="send"></iron-icon>
+						</paper-button>
+					</div>
+				</div>
+			</discipuluz-card>
+		</form>
 
 	</template>
+
 	<script>
 	Polymer({
 		is: 'discipuluz-form',
 
 		properties:{
-			title:String
+			title: String,
+			url: String,
+			buttonText: String
+		},
+
+		_submitForm: function(){
+			this.$.form.submit()
+		},
+
+		_formResponse: function(e){
+			this.fire('response', e.detail.response)
 		}
+
 	})
 	</script>
 
