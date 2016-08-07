@@ -34,12 +34,16 @@
 				page: {
 					type: String,
 					notify: true
+				},
+				home: {
+					type: String,
+					value: 'inicio'
 				}
 			},
 
 			_changeRoute: function(){
 				if(!this.routeData.page){
-					this.set('page', 'home')
+					this.set('page', this.home)
 				}else {
 					this.set('page', this.routeData.page)
 				}
