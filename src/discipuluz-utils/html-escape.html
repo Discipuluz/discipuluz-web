@@ -1,22 +1,28 @@
 <dom-module id="html-escape">
-    
-    <template>
-    </template>
-    
+	
+	<template>
+	</template>
+	
 	<script>
-        Polymer({
-            is: 'html-escape',
+		Polymer({
+			is: 'html-escape',
 
-            properties: {
-                text: {
-                    type: String,
-                    observer: 'escape'
-                }
-            },
+			properties: {
+				text: {
+					type: String,
+					observer: 'escape'
+				}
+			},
 
-            escape: function(){
-                this.innerHTML = this.text
-            }
-        })
+			escape: function(){
+				this.innerHTML = this.text
+				elements = this.querySelectorAll('*')
+				for(var i = 0 ; i < elements.length ; i ++){
+					for(var j = 0; j < this.classList.length; j++){
+						elements[i].classList.add(this.classList[j])
+					}
+				}
+			}
+		})
 	</script>
 </dom-module>
