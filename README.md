@@ -1,18 +1,54 @@
-# \<discipuluz-web\>
+# HEALTHBIT WEB
 
-Discipuluz website
+    Discipuluz website front end, as of 2016
 
-## Install the Polymer-CLI
+## TECNOLOGIES
+[Polymer 1.0](https://www.polymer-project.org/1.0/)
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
+## DEVELOPMENT
 
-## Viewing Your Application
+### Installing
+* Install  [NodeJS with NPM](https://nodejs.org/) from its site or your package manager 
+* Install  [Bower](https://bower.io/) with `$ npm install -g bower`
+* Install  [Polymer CLI](https://www.npmjs.com/package/polymer-cli) with `$ npm install -g polymer-cli`
+* Install needed components with `$ bower install` on projects folder
 
+### Running
 ```
 $ polymer serve
 ```
 
-## Building Your Application
+### Structure
+This Project's components were divided in:
+* `healthbit-app.html` - The main component, responsible for mounting layout
+* `healthbit-layout/` - The master layout components (header, footer, etc)
+* `healthbit-pages/` -  The pages
+* `healthbit-components/` - Widgets, reusable
+* `healthbit-utils/` - Helpers, do not interact necessarily with visuals 
+
+
+### Practices
+In this project the following practices were used:
+* HTML/CSS
+    * identation: *tabs*
+    * quotes: `"double"`
+    * id: `lower_snake_case`
+    * classes: `lower-hyphen-case`
+* JS
+    * semicolon: *no semicolons*
+    * identation: *tabs*
+    * quotes: `'simple'`
+    * variables: `lower_snake_case`
+    * constants: `UPPER_SNAKE_CASE`
+    * functions: `lowerCamelCase`
+    * classes: `UpperCamelCase`
+    * privates: `_prefixedWithUnderlines`
+    * json: *implicit strings on keys*
+* Design: *mostly done based on google paper materials*
+
+## PRODUCTION
+
+### Build
 
 ```
 $ polymer build
@@ -28,11 +64,3 @@ from:
 ```
 $ polymer serve build/bundled
 ```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
