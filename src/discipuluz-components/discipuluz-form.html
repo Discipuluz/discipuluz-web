@@ -1,3 +1,4 @@
+<link rel="import" href="../../bower_components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
@@ -20,6 +21,8 @@
 			}
 
 		</style>
+
+		<iron-a11y-keys target="[[_form]]" keys="enter" on-keys-pressed="_submitForm"></iron-a11y-keys>
 
 		<form is="iron-form" method="post" action="[[url]]" on-iron-form-response="_formResponse" id="form">
 			<discipuluz-card title="[[title]]">
