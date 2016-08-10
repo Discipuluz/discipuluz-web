@@ -38,6 +38,10 @@
 				page: {
 					type: String,
 					notify: true
+				},
+				exceptions: {
+					type: Object,
+					value: []
 				}
 			},
 
@@ -46,6 +50,13 @@
 					this.set('page', 'list')
 					this.set('index', '')
 				}else {
+					for(var i = 0; i < this.exceptions.length; i++){
+						if(this.routeData.index === this.exceptions[i]){
+							this.set('page', this.routeData.index)
+							this.set('index', this.routeData.index)
+							return
+						}
+					}
 					this.set('page', 'item')
 					this.set('index', this.routeData.index)
 				}

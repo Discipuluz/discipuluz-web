@@ -1,0 +1,183 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
+
+<link rel="import" href="../discipuluz-utils/html-escape.html">
+
+<dom-module id="discipuluz-quiz-jung-result">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+            .result h1{
+                color: var(--primary-title-color);
+                margin-bottom: 0;
+            }
+            .result h2{
+                margin-top: 0;
+            }
+            .result h3{
+                color: var(--primary-title-color);
+                margin-top: 0;
+            }
+            .result h4{
+                margin-top: 0;
+                margin-left: 1rem;
+                font-size: 1.17em
+            }
+            .result .description{
+                display: inline-block;
+                margin-left: 3rem;
+            }
+
+            .form-content > div{
+                margin-bottom: 2rem;
+            }
+			paper-slider{
+                width: 100%;
+            }
+			paper-button > *{
+				margin: 0 .3rem;
+			}
+			paper-button{
+                margin-bottom: 3rem;
+				background-color: var(--primary-title-color);
+				color: var(--primary-bg-color);
+			}
+		</style>
+
+        <div class="layout vertical">
+            <div class="layout vertical result">
+				<div class="layout vertical center-center">
+                    <p>[[localize('description')]]</p>
+                    <p>
+                        <h1>[[result]]</h1>
+                        <br>
+                        <h2>[[_result.tags]]</h2>
+                    </p>
+				</div>
+				<div class="layout horizontal">
+                    <h3>[[localize('title')]]</h3>
+                    <h4>[[_result.title]]</h4>
+				</div>
+				<div class="layout horizontal">
+                    <h3>[[localize('keywords')]]</h3>
+                    <h4>[[_result.keywords]]</h4>
+				</div>
+                <p><span class="description"><html-escape text="[[_result.description]]"></html-escape></span></p>
+                <p>
+                    <h3>[[localize('points-strong')]]</h3>
+                    [[_result.points.strong]]
+                </p>
+                <p>
+                    <h3>[[localize('points-weak')]]</h3>
+                    [[_result.points.weak]]
+                </p>
+
+				<div class="layout horizontal center-center">
+                    <a href="/questionario/jung/saibamais">
+                        <paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm"> 
+                            <span>[[localize('more')]]</span>
+                            <iron-icon icon="social:school"></iron-icon>
+                        </paper-button>
+                    </a>
+				</div>
+            </div>
+            <div class="layout horizontal">
+                <template is="dom-if" if="[[isLargeScreen]]">
+                    <div class="flex-2"></div>
+                </template>
+                <discipuluz-form class="flex-3"
+                    title="[[localize('form-title')]]"
+                    url="http://localhost:8888/web/jung/result"
+                    button-text="[[localize('form-submit')]]"
+                    on-response="_formResponse">
+                    <div class="layout vertical form-content">
+                        <div class="layout horizontal">
+                            <paper-input class="flex" label="[[localize('form-feedback-label')]]" name="feedback"></paper-input>
+                        </div>
+                        <div class="layout vertical">
+                            <div class="layout horizontal">
+                                <p>[[localize('form-score-label')]]</p>
+                            </div>
+                            <div class="layout horizontal">
+                                <paper-slider class="layout horizontal"
+                                    name="feedback" 
+                                    min="0" 
+                                    max="10" 
+                                    value="5" 
+                                    step="1"
+                                    pin 
+                                    required>
+                                </paper-slider>
+                            </div>
+                        </div>
+                    </div>
+                </discipuluz-form>
+                <template is="dom-if" if="[[isLargeScreen]]">
+                    <div class="flex-2"></div>
+                </template>
+            </div>
+        </div>
+		
+	</template>
+
+
+	<script>
+	Polymer({
+
+		is: 'discipuluz-quiz-jung-result',
+
+		behaviors: [
+			Discipuluz.AppResponsiveBehavior,
+			Discipuluz.AppLocalizeBehavior
+		],
+
+		properties: {
+            result: String,
+            _result: {
+                type: Object,
+                computed: '_computeResult(results, result)'
+            },
+			results: {
+				type: Object,
+				value: {
+					ESTJ: {
+                        tags: 'Extrovertido, perceptivo, emotivo, analítico',
+                        title: 'O colaborador',
+                        keywords:'Interação social, dedicação e responsabilidade',
+                        description: 'Você quer se relacionar com outras pessoas e cultivar a amizade entre os colegas. Precisa conhecer bem as tarefas e prefere trabalhar em um ambiente onde todos cooperem. Gosta de tomar decisões e de supervisionar projetos.<br>É o mais sociável de todos os perfis psicológicos. Energiza-se com a interação que promove com os demais. Onde quer que esteja, promove harmonia e conciliação, proporcionando com sua presença um ambiente acolhedor.<br>Devido às suas características, é geralmente muito apreciado por seus superiores, pois respeita as regras, o dever e o cumprimento das tarefas que lhe são confiadas.<br><br>Prefere lidar com aspectos concretos, inquietando-se com situações complexas que necessitem de análises abstratas de princípios.<br>Por ser prestativo e atento àqueles que necessitam de sua ajuda, a solidão causa-lhe sempre ansiedade e inquietação. Magoa-se com a indiferença, afinal está sempre atento às necessidades e estados de humor de todos; portanto, quando sente não receber um retorno na atenção dos outros, decepciona-se e pode ficar ressentido. Geralmente alegre e bem humorado, pode, entretanto, tornar-se deprimido quando se culpa por algo que julgue não ter percebido, ou que ache que poderia fazer melhor e não fez.<br>Quando admira e respeita muito uma pessoa, em geral alguém que seja uma autoridade em relação a algum conhecimento ou poder hierárquico, tende a espelhar-se nestes ícones como norteadores de suas opiniões, posicionamentos e atitudes.',
+                        points: {
+                            strong: ' Trabalha duro, produz muito e é fiel ao emprego. Tem boa memória. Segue regras e se adapta perfeitamente à rotina já estabelecida. ',
+                            weak: ' É sensível a críticas e fica estressado com situações tensas em que não consiga exercer sua capacidade de conciliação. Prefere tomar decisões rápidas, muitas vezes sem considerar todas as opções ou ponderações possíveis. Pode demonstrar-se rígido ou um pouco teimoso quando não é convencido por algo que o faça mudar de ideia, ou caso não admire a pessoa que está argumentando sobre a mudança.'
+                        }
+					}
+                }
+			},
+			file: {
+				value: 'quiz-jung-result'
+			}
+		},
+        
+        _computeResult: function(results, result){
+            return results[result]
+        },
+
+		_submitForm: function(){
+			this.$.form.submit()
+		},
+
+		_formResponse: function(e){
+			console.log(e)
+		},
+
+		_addOne(index){
+			return index + 1
+		}
+	})
+	</script>
+
+</dom-module>

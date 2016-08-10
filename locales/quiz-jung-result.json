@@ -1,0 +1,14 @@
+{
+	"pt": {
+		"description": "O resultado abaixo apresenta suas tendências de ação frente a novas situações, seu modo de perceber as informações, seu estilo de julgamento e modo de organizar-se para dar conta de um trabalho. Estas preferências compõem um perfil psicológico QUE NÃO É IMUTÁVEL. Utilizamos em nosso trabalho a referência de Carl Jung, que em sua tipologia de personalidade buscou responder a estas tendências e preferências descritas acima. Importante ressaltar que ele dizia que um grupo de funções predominantes define nossa “personalidade” na primeira metade da vida, mas que justamente as funções “menos desenvolvidas” até então serão nosso desafio, para nosso desenvolvimento e amadurecimento para uma vida feliz. Você encontrará abaixo a descrição de seu conjunto de funções, com dicas sobre seus pontos fortes e fracos, que você terá a responsabilidade de observar e cuidar em sua vida adulta. ",
+        "title": "Título",
+        "keywords": "Palavras-chave",
+        "points-strong": "Seus pontos fortes",
+        "points-weak": "Possíveis áreas de autodesenvolvimento",
+        "more": "Se interessou? Saiba mais",
+        "form-title": "O que achou?",
+        "form-feedback-label": "Escreva aqui seu feedback",
+        "form-score-label": "Uma nota para nós",
+        "form-submit": "Enviar"
+	}
+}
