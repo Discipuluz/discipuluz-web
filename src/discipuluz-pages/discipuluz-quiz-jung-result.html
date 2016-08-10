@@ -92,10 +92,11 @@
                 </template>
                 <discipuluz-form class="flex-3"
                     title="[[localize('form-title')]]"
+				    back-title="[[localize('form-success-title')]]"
                     url="http://localhost:8888/web/jung/result"
                     button-text="[[localize('form-submit')]]"
                     on-response="_formResponse">
-                    <div class="layout vertical form-content">
+                    <div class="layout vertical form-content form-front">
                         <div class="layout horizontal">
                             <paper-input class="flex" label="[[localize('form-feedback-label')]]" name="feedback"></paper-input>
                         </div>
@@ -115,6 +116,11 @@
                                 </paper-slider>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-back">
+                        <p>
+                            [[localize('form-success-message')]]
+                        </p>
                     </div>
                 </discipuluz-form>
                 <template is="dom-if" if="[[isLargeScreen]]">

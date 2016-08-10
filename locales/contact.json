@@ -6,6 +6,9 @@
 		"email-label": "Qual seu email?",
 		"email-error": "Por favor, entre com um email válido",
 		"message-label": "Deixe sua mensagem para nós",
-		"message-error": "Por favor, digite uma mensagem"
+		"message-error": "Por favor, digite uma mensagem",
+		"submit": "Enviar",
+		"success-title": "Obrigado por sua mensagem.",
+		"success-message": "A Discipuluz agradece o seu contato :)"
 	}
 }

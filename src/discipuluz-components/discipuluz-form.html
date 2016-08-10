@@ -11,6 +11,41 @@
 <dom-module id="discipuluz-form">
 	<template>
 		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+			/*
+			 * Flip
+			 */
+			#container{
+				perspective: 800px;
+			}
+
+			#container > div{
+				transition: transform 1s linear 0s;
+				backface-visibility: hidden;
+			}
+
+			#container > div.back{
+				position: absolute;
+				width: 100%;
+				-webkit-transform: rotateY(180deg); /* Safari */
+				transform: rotateY(180deg); /* Standard syntax */
+			}
+
+			#container.flipped > div{
+				transform-style: preserve-3d;
+			}
+
+			#container.flipped > div:not(.back){
+				-webkit-transform: rotateY(180deg); /* Safari */
+				transform: rotateY(180deg); /* Standard syntax */
+			}
+
+			#container.flipped > div.back{
+				-webkit-transform: rotateY(360deg); /* Safari */
+				transform: rotateY(360deg); /* Standard syntax */
+			}
+			/*
+			 * Button
+			 */
 			iron-icon{
 				margin-left: 5px;
 			}
@@ -25,22 +60,32 @@
 
 		</style>
 
-		<iron-a11y-keys target="[[_form]]" keys="enter" on-keys-pressed="_submitForm"></iron-a11y-keys>
-
-		<form is="iron-form" method="post" action="[[url]]" on-iron-form-response="_formResponse" id="form">
-			<discipuluz-card title="[[title]]">
-				<div class="card-content">
-					<content></content>
-				</div>
-				<div class="card-actions">
-					<div class="layout horizontal end-justified">
-						<paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm"> 
-							[[buttonText]] <iron-icon icon="send"></iron-icon>
-						</paper-button>
+		<!--iron-a11y-keys target="[[_form]]" keys="enter" on-keys-pressed="_submitForm"></iron-a11y-keys-->
+		<div id="container">
+			<div class="back">
+				<discipuluz-card title="[[backTitle]]" hidden$="[[!backTitle]]">
+					<div class="card-content">
+						<content select=".form-back"></content>
 					</div>
-				</div>
-			</discipuluz-card>
-		</form>
+				</discipuluz-card>
+			</div>
+			<div>
+				<form is="iron-form" method="post" action="[[url]]" on-iron-form-response="_formResponse" id="form">
+					<discipuluz-card title="[[title]]">
+						<div class="card-content">
+							<content select=".form-front"></content>
+						</div>
+						<div class="card-actions">
+							<div class="layout horizontal end-justified">
+								<paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm"> 
+									[[buttonText]] <iron-icon icon="send"></iron-icon>
+								</paper-button>
+							</div>
+						</div>
+					</discipuluz-card>
+				</form>
+			</div>
+		</div>
 
 	</template>
 
@@ -54,6 +99,7 @@
 
 		properties:{
 			title: String,
+			backTitle: String,
 			url: String,
 			buttonText: String
 		},
@@ -63,6 +109,7 @@
 		},
 
 		_formResponse: function(e){
+			this.$.container.classList.add("flipped")
 			this.fire('response', e.detail.response)
 		}
 

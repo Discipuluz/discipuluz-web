@@ -26,10 +26,11 @@
 			</template>
 			<discipuluz-form class="flex-3 contact-card"
 				title="[[localize('title')]]"
+				back-title="[[localize('success-title')]]"
 				url="http://localhost:8888/web/contact"
-				button-text="Enviar" 
+				button-text="[[localize('submit')]]" 
 				on-response="_formResponse">
-				<div class="layout vertical">
+				<div class="form-front layout vertical">
 					<div class="layout horizontal">
 						<paper-input required class="flex" label="[[localize('name-label')]]" name="name" error-message="[[localize('name-error')]]"></paper-input>
 					</div>
@@ -41,6 +42,11 @@
 					<div class="layout horizontal">
 						<paper-textarea required class="flex" label="[[localize('message-label')]]" name="message" error-message="[[localize('message-error')]]"></paper-textarea>
 					</div>
+				</div>
+				<div class="form-back">
+					<p>
+						[[localize('success-message')]]
+					</p>
 				</div>
 			</discipuluz-form>
 			<template is="dom-if" if="[[isLargeScreen]]">

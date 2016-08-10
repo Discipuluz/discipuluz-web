@@ -9,6 +9,8 @@
         "form-title": "O que achou?",
         "form-feedback-label": "Escreva aqui seu feedback",
         "form-score-label": "Uma nota para nós",
-        "form-submit": "Enviar"
+        "form-submit": "Enviar",
+        "form-success-title": "Obrigado pelo feedback",
+        "form-success-message": "A Discipuluz agradece :)"
 	}
 }
