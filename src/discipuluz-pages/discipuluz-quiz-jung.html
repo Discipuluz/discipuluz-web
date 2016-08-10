@@ -1,7 +1,7 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
 
-<link rel="import" href="../discipuluz-components/discipuluz-card-slider.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-option.html">
 <link rel="import" href="../discipuluz-utils/discipuluz-util-classes.html">
 
 <dom-module id="discipuluz-quiz-jung">
@@ -31,12 +31,12 @@
 				<div class="layout horizontal wrap">
 					<template is="dom-repeat" items="[[questions]]" as="question">
 						<div class$="card-container [[responsiveClass('small', 'large')]] sizing-border-box">
-							<discipuluz-card-slider
+							<discipuluz-card-option
 								number="[[_addOne(index)]]"
 								title="[[question.question]]"
 								name="question-[[index]]"
 								options="[[question.answers]]">
-							</discipuluz-card-slider>
+							</discipuluz-card-option>
 						</div>
 					</template>
 				</div>
