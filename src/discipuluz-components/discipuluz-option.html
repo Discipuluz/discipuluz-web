@@ -1,0 +1,71 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-card.html">
+<link rel="import" href="../discipuluz-utils/discipuluz-util-classes.html">
+
+<dom-module id="discipuluz-option">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors discipuluz-text">
+			input{
+				display: none;
+			}
+
+			label {
+				cursor: pointer;
+				transition: all .2s linear;
+			}
+
+			.form-radio-field:hover > .form-radio-button{
+				background-color: inherit;
+			}
+
+			.form-radio-button{
+				border-radius: 6px 0 0 6px;
+				padding-top: 0.6rem;
+				padding-bottom: 0.6rem;
+
+				color: var(--primary-title-color);
+			}
+			
+			input:not(:checked) ~ .form-radio-button:hover ~ .form-radio-label,
+			input:not(:checked) ~ .form-radio-label:hover{
+				background-color: var(--primary-bg-selected-color);
+			}
+
+			input:checked ~ .form-radio-label{
+				box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+				
+				border-radius: 2px;
+				background-color: var(--primary-title-color);
+				color: var(--primary-bg-color);
+			}
+			
+			.form-radio-label{
+				margin-bottom: 1rem;
+				border-radius: 0 2px 2px 2px;
+				padding: 1rem;
+			}
+		</style>
+
+		<div class="form-radio-field layout horizontal">
+			<input id$="option-[[name]]-[[value]]" name="[[name]]" value="[[value]]" type="radio" required>
+			<label for$="option-[[name]]-[[value]]" class="flex-1 form-radio-button remove-highlight bold">[[value]]</label>
+			<label for$="option-[[name]]-[[value]]" class="flex-11 form-radio-label remove-highlight">[[text]]</label>
+		</div>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-option',
+
+		properties:{
+			name: String,
+			value: String,
+			text: String
+		}
+
+	})
+	</script>
+
+</dom-module>

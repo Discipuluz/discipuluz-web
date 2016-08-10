@@ -45,6 +45,10 @@
 	Polymer({
 		is: 'discipuluz-form',
 
+		behaviors: [
+			Discipuluz.AppResponsiveBehavior
+		],
+
 		properties:{
 			title: String,
 			url: String,

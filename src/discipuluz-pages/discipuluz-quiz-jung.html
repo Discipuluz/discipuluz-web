@@ -1,0 +1,118 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-card-option.html">
+<link rel="import" href="../discipuluz-utils/discipuluz-util-classes.html">
+
+<dom-module id="discipuluz-quiz-jung">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment discipuluz-flow">
+			.card-container{
+				padding: 1rem;
+				box-sizing: border-box;
+			}
+			.card-container.small{
+				width: 100%;
+			}
+			.card-container.large{
+				width: 50%;
+			}
+			paper-button > *{
+				margin: 0 .3rem;
+			}
+			paper-button{
+				background-color: var(--primary-title-color);
+				color: var(--primary-bg-color);
+			}
+		</style>
+
+		<form is="iron-form" method="post" action="[[url]]" on-iron-form-response="_formResponse" id="form">
+			<div class="layout vertical">
+				<div class="layout horizontal wrap">
+					<template is="dom-repeat" items="[[questions]]" as="question">
+						<div class$="card-container [[responsiveClass('small', 'large')]] sizing-border-box">
+							<discipuluz-card-option
+								number="[[_addOne(index)]]"
+								title="[[question.question]]"
+								name="question-[[index]]"
+								options="[[question.answers]]">
+							</discipuluz-card-option>
+						</div>
+					</template>
+				</div>
+
+				<div class="layout horizontal center-center">
+					<paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm"> 
+						 <span>[[localize('submit')]]</span>
+						 <iron-icon icon="send"></iron-icon>
+					</paper-button>
+				</div>
+			</div>
+		</form>
+	</template>
+
+
+	<script>
+	Polymer({
+
+		is: 'discipuluz-quiz-jung',
+
+		behaviors: [
+			Discipuluz.AppResponsiveBehavior,
+			Discipuluz.AppLocalizeBehavior
+		],
+
+		properties: {
+			questions: {
+				type: Object,
+				value: [
+					{
+						question: 'Em um lugar novo, ou frente a novas situações, você prefere:',
+						answers: [
+							'Compartilhar informações com o máximo de pessoas possível, sentindo-se bem principalmente quando acompanhado ou em grupo.',
+							'Compartilhar informações com um grupo mais restrito de pessoas, quem estiver mais próximo a você, sentindo-se bem também quando fica sozinho.'
+						]
+					},
+					{
+						question: 'Na maioria das situações, você tende a ser uma pessoa:',
+						answers: [
+							'Racional, que se guia pela lógica, com imparcialidade.',
+							'Emotiva, que se guia pelo sentimento e coração.'
+						]
+					},
+					{
+						question: 'Pense que está no meio de um grande grupo de pessoas. Você...',
+						answers: [
+							'Fala mais do que ouve. Age e depois pensa.',
+							'Ouve mais do que fala. Pensa e depois age.'
+						]
+					},
+					{
+						question: 'Nas suas decisões e avaliações sobre outras pessoas, pesa mais:',
+						answers: [
+							'O que é certo ou errado, ou seja, valoriza a lógica e a justiça. Vê um padrão para todos.',
+							'Preservar um clima cordial entre as pessoas. Compreende as circunstâncias que levaram a pessoa àquela atitude.'
+						]
+					}
+				]
+			},
+			file: {
+				value: 'quiz-jung'
+			}
+		},
+
+		_submitForm: function(){
+			this.$.form.submit()
+		},
+
+		_formResponse: function(e){
+			console.log(e)
+		},
+
+		_addOne(index){
+			return index + 1
+		}
+	})
+	</script>
+
+</dom-module>

@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-card-quiz.html">
+<link rel="import" href="../discipuluz-components/discipuluz-option.html">
+
+<dom-module id="discipuluz-card-option">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+			discipuluz-card-quiz{
+				height: 100%;
+			}
+			fieldset{
+				border: none;
+			}
+		</style>
+		
+		<discipuluz-card-quiz number="[[number]]" title="[[title]]">
+			<fieldset class="layout vertical">
+				<template is="dom-repeat" items="[[options]]" as="option">
+					<discipuluz-option name="[[name]]" value="[[_questionOption(index)]]" text="[[option]]"></discipuluz-option>
+				</template>
+			</fieldset>
+		</discipuluz-card-quiz>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-card-option',
+
+		properties:{
+			number: Number,
+			title: String,
+			name: String,
+			options: Object
+		},
+
+		_questionOption(num){
+			return String.fromCharCode(97 + num)
+		}
+
+	})
+	</script>
+
+</dom-module>

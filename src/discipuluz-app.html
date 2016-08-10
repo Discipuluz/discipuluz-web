@@ -13,6 +13,7 @@
 
 <link rel="import" href="discipuluz-pages/discipuluz-home.html">
 <link rel="import" href="discipuluz-pages/discipuluz-contact.html">
+<link rel="import" href="discipuluz-pages/discipuluz-quiz-jung.html">
 
 
 <dom-module id="discipuluz-app">
@@ -21,6 +22,7 @@
 			:host {
 				display: block;
 				--primary-bg-color: rgb(241, 241, 241);
+				--primary-bg-selected-color: rgb(192,251,133);
 				--primary-title-color: rgb(152,211,83);
 				--primary-text-color: rgb(91, 91, 91);
 
@@ -64,6 +66,9 @@
 			<discipuluz-pages route="[[route]]" subroute="{{subroute}}" page="{{page}}">
 				<discipuluz-home name="inicio"></discipuluz-home>
 				<discipuluz-contact name="contato"></discipuluz-contact>
+				<discipuluz-pages name="questionario" route="[[subroute]]">
+					<discipuluz-quiz-jung name="jung"></discipuluz-quiz-jung>
+				</discipuluz-pages>
 			</discipuluz-pages>
 		</discipuluz-content>
 		<discipuluz-footer page="[[page]]"></discipuluz-footer>
