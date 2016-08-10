@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
+
+<link rel="import" href="../discipuluz-utils/html-escape.html">
+
+<dom-module id="discipuluz-quiz-jung-more">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+            h1{
+                color: var(--primary-title-color);
+                margin-bottom: 0;
+            }
+            h2{
+                margin-top: 0;
+            }
+            h3{
+                color: var(--primary-title-color);
+                margin-top: 0;
+            }
+            h4{
+                margin-top: 0;
+                margin-left: 1rem;
+                font-size: 1.17em
+            }
+            .description{
+                display: inline-block;
+                margin-left: 3rem;
+            }
+		</style>
+		
+	</template>
+
+
+	<script>
+	Polymer({
+
+		is: 'discipuluz-quiz-jung-more',
+
+		behaviors: [
+			Discipuluz.AppResponsiveBehavior,
+			Discipuluz.AppLocalizeBehavior
+		],
+
+		properties: {
+            result: String,
+            _result: {
+                type: Object,
+                computed: '_computeResult(results, result)'
+            },
+			file: {
+				value: 'quiz-jung-more'
+			}
+		},
+        
+        _computeResult: function(results, result){
+            return results[result]
+        },
+
+		_submitForm: function(){
+			this.$.form.submit()
+		},
+
+		_formResponse: function(e){
+			console.log(e)
+		},
+
+		_addOne(index){
+			return index + 1
+		}
+	})
+	</script>
+
+</dom-module>
