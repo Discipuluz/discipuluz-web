@@ -1,0 +1,53 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-card-quiz.html">
+<link rel="import" href="../discipuluz-components/discipuluz-option.html">
+
+<dom-module id="discipuluz-card-slider">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+			discipuluz-card-quiz{
+				height: 100%;
+			}
+			fieldset{
+				border: none;
+			}
+			paper-slider{
+				margin-top: 1rem;
+				width: 100%;
+
+				--paper-slider-active-color: var(--primary-title-color);
+				--paper-slider-knob-color: var(--primary-title-color);
+				--paper-slider-pin-color: var(--primary-title-color);
+			}
+		</style>
+		
+		<discipuluz-card-quiz number="[[number]]" title="[[title]]">
+			<paper-slider 
+				name="[[name]]" 
+				min="1" 
+				max="5" 
+				value="3" 
+				step="1"
+				pin 
+				required>
+			</paper-slider>
+		</discipuluz-card-quiz>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'discipuluz-card-slider',
+
+		properties:{
+			number: Number,
+			title: String,
+			name: String
+		}
+
+	})
+	</script>
+
+</dom-module>

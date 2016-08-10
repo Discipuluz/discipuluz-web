@@ -1,10 +1,10 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
 
-<link rel="import" href="../discipuluz-components/discipuluz-card-slider.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-option.html">
 <link rel="import" href="../discipuluz-utils/discipuluz-util-classes.html">
 
-<dom-module id="discipuluz-quiz-jung">
+<dom-module id="discipuluz-quiz-holland">
 	<template>
 		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment discipuluz-flow">
 			.card-container{
@@ -34,8 +34,7 @@
 							<discipuluz-card-slider
 								number="[[_addOne(index)]]"
 								title="[[question.question]]"
-								name="question-[[index]]"
-								options="[[question.answers]]">
+								name="question-[[index]]">
 							</discipuluz-card-slider>
 						</div>
 					</template>
@@ -55,7 +54,7 @@
 	<script>
 	Polymer({
 
-		is: 'discipuluz-quiz-jung',
+		is: 'discipuluz-quiz-holland',
 
 		behaviors: [
 			Discipuluz.AppResponsiveBehavior,
@@ -67,37 +66,21 @@
 				type: Object,
 				value: [
 					{
-						question: 'Em um lugar novo, ou frente a novas situações, você prefere:',
-						answers: [
-							'Compartilhar informações com o máximo de pessoas possível, sentindo-se bem principalmente quando acompanhado ou em grupo.',
-							'Compartilhar informações com um grupo mais restrito de pessoas, quem estiver mais próximo a você, sentindo-se bem também quando fica sozinho.'
-						]
+						question: 'Em um lugar novo, ou frente a novas situações, você prefere:'
 					},
 					{
-						question: 'Na maioria das situações, você tende a ser uma pessoa:',
-						answers: [
-							'Racional, que se guia pela lógica, com imparcialidade.',
-							'Emotiva, que se guia pelo sentimento e coração.'
-						]
+						question: 'Na maioria das situações, você tende a ser uma pessoa:'
 					},
 					{
-						question: 'Pense que está no meio de um grande grupo de pessoas. Você...',
-						answers: [
-							'Fala mais do que ouve. Age e depois pensa.',
-							'Ouve mais do que fala. Pensa e depois age.'
-						]
+						question: 'Pense que está no meio de um grande grupo de pessoas. Você...'
 					},
 					{
-						question: 'Nas suas decisões e avaliações sobre outras pessoas, pesa mais:',
-						answers: [
-							'O que é certo ou errado, ou seja, valoriza a lógica e a justiça. Vê um padrão para todos.',
-							'Preservar um clima cordial entre as pessoas. Compreende as circunstâncias que levaram a pessoa àquela atitude.'
-						]
+						question: 'Nas suas decisões e avaliações sobre outras pessoas, pesa mais:'
 					}
 				]
 			},
 			file: {
-				value: 'quiz-jung'
+				value: 'quiz-holland'
 			}
 		},
 
