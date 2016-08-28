@@ -1,4 +1,4 @@
-# HEALTHBIT WEB
+# DISCIPULUZ WEB
 
     Discipuluz website front end, as of 2016
 
@@ -20,11 +20,11 @@ $ polymer serve
 
 ### Structure
 This Project's components were divided in:
-* `healthbit-app.html` - The main component, responsible for mounting layout
-* `healthbit-layout/` - The master layout components (header, footer, etc)
-* `healthbit-pages/` -  The pages
-* `healthbit-components/` - Widgets, reusable
-* `healthbit-utils/` - Helpers, do not interact necessarily with visuals 
+* `discipuluz-app.html` - The main component, responsible for mounting layout
+* `discipuluz-layout/` - The master layout components (header, footer, etc)
+* `discipuluz-pages/` -  The pages
+* `discipuluz-components/` - Widgets, reusable
+* `discipuluz-utils/` - Helpers, do not interact necessarily with visuals 
 
 
 ### Practices
