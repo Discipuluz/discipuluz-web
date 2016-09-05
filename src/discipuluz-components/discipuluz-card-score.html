@@ -1,0 +1,75 @@
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<dom-module id="discipuluz-card-score">
+	<template>
+		<style>
+			paper-card{
+				margin: 10px;
+				margin-top: 0;
+			}
+			paper-card.rate { @apply(--layout-horizontal); }
+			.rate-image {
+				width: 100px;
+				height: 170px;
+				background-size: cover;
+			}
+			.rate-content {
+				@apply(--layout-flex);
+				float: left;
+			}
+			.rate-header { @apply(--paper-font-headline); }
+			.rate-name { color: var(--paper-grey-600); margin: 10px 0; }
+			paper-icon-button.rate-icon.full {
+				--iron-icon-fill-color: var(--primary-title-color);
+				--iron-icon-stroke-color: var(--primary-title-color);
+			}
+			paper-icon-button.rate-icon:not(.full) {
+				--iron-icon-fill-color: var(--primary-text-color);;
+				--iron-icon-stroke-color: var(--primary-text-color);;
+			}
+
+			.info, .score{
+				margin: 5px;
+			}
+		</style>
+
+		<paper-card class="rate">
+			<div class="rate-content">
+				<div class="card-content">
+					<div class="rate-header">{{university}}</div>
+					<div class="rate-name">{{city}}</div>
+				</div>
+				<div class="card-actions">
+					<template is="dom-repeat" items="{{_toArray(score)}}" as="item">
+						<paper-icon-button class$="rate-icon [[_isCheck(item)]]" icon="star"></paper-icon-button>
+					</template>
+				</div>
+			</div>
+			<div class="rate-image" style$="background: url('../../images/{{university}}.png');"></div>
+		</paper-card>
+
+	</template>
+	<script>
+	Polymer({
+		is: 'discipuluz-card-score',
+
+		properties:{
+			score: Number,
+			university: String,
+			city: String
+		},
+    _toArray: function(score) {
+			array = [0, 0, 0, 0, 0]
+			for(var i = 0; i < score; i++){
+				array[i] = 1
+			}
+			return array
+		},
+		_isCheck: function(val){
+			return val ? "full" : ""
+		}
+	})
+
+	</script>
+
+</dom-module>

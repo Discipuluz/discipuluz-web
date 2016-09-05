@@ -1,0 +1,110 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+
+<link rel="import" href="../discipuluz-components/discipuluz-card.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-score.html">
+<link rel="import" href="../discipuluz-utils/html-escape.html">
+
+<dom-module id="discipuluz-course">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+
+			paper-tabs{
+				--paper-tabs-selection-bar-color: var(--primary-title-color);
+			}
+      .justified{
+        text-align: center;
+      }
+      .main-title{
+        font-weight: 100;
+        color: #777;
+        font-size: 2.5em;
+      }
+			.secondary-title{
+				font-weight: 100;
+				color: #777;
+				font-size: 1.6em;
+			}
+			.contents{
+				margin-top: 10px;
+			}
+			.main-content{
+				margin: 10px;
+			}
+
+    </style>
+
+	<div class="layout vertical justified">
+	  <h2 class="main-title">Ciência da Computação</h2>
+
+	  <div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
+		  <div class="layout vertical flex-2 info">
+				<h3 class="secondary-title">Descrição Geral</h3>
+			  <div class="about">
+					<paper-card>
+						<div class="card-content">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum placerat justo. In finibus dolor vel tellus maximus tempus. Sed pellentesque magna ut dui tempus faucibus. Nunc ex est, efficitur at venenatis ut, placerat in velit. Cras efficitur imperdiet ornare. Fusce imperdiet quam ut erat ultrices, quis pretium lacus ultricies. Vestibulum quis egestas tortor. Sed suscipit maximus lacus vitae eleifend.
+							<br>
+							Vivamus viverra tellus non turpis sagittis vulputate. Morbi lobortis elit erat, non tempus massa vehicula fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis nec elit euismod, sollicitudin orci quis, vulputate ligula. Vestibulum laoreet mi sed mi facilisis, sed interdum metus commodo. Suspendisse ultricies venenatis sem. Sed varius facilisis gravida. Quisque dapibus mauris ipsum. Nullam sed commodo nisi, nec laoreet risus. Aenean metus lectus, cursus et rhoncus eget, elementum vitae lacus.
+							<br>
+							Donec leo magna, tristique id neque sed, convallis lacinia enim. Duis ultrices velit risus, sit amet dignissim nunc posuere ac. Vivamus id mauris vel odio efficitur lobortis. Vestibulum pulvinar tristique efficitur. Donec ac lacus aliquet, elementum libero ac, egestas sapien. Mauris eu tortor venenatis, interdum risus eget, lobortis lacus. Praesent molestie blandit ipsum eu porttitor. Vivamus tincidunt elit ut lacus ullamcorper, non gravida nulla viverra.
+						</div>
+					</paper-card>
+			  </div>
+			  <div class="contents">
+					<div class="layout vertical flex-2 info">
+						<paper-card>
+							<paper-tabs attr-for-selected="name" selected="{{tab}}">
+								<paper-tab name="0">Depoimentos</paper-tab>
+								<paper-tab name="1">Vídeos</paper-tab>
+								<paper-tab name="2">Notícias</paper-tab>
+							</paper-tabs>
+							<div class="main-content">
+								<iron-pages attr-for-selected="name" selected="[[tab]]" class="flex">
+									<div name="0">One</div>
+									<div name="1">Two</div>
+									<div name="2">Three</div>
+								</iron-pages>
+							</div>
+						</paper-card>
+				  </div>
+				</div>
+		  </div>
+		  <div class="layout vertical flex score">
+				<h3 class="secondary-title">Melhores Universidades</h3>
+				<discipuluz-card-score score="5" university="Unicamp" city="Campinas/SP"></discipuluz-card-score>
+				<discipuluz-card-score score="4" university="USP" city="São Carlos/SP"></discipuluz-card-score>
+				<discipuluz-card-score score="3" university="UFMG" city="Belo Horizonte/MG"></discipuluz-card-score>
+				<discipuluz-card-score score="2" university="UFSC" city="Santa Catarina/SP"></discipuluz-card-score>
+		  </div>
+
+	  </div>
+	</div>
+
+  </template>
+
+  <script>
+  Polymer({
+    is: 'discipuluz-course',
+
+    behaviors: [
+      Discipuluz.AppLocalizeBehavior,
+      Discipuluz.AppResponsiveBehavior
+    ],
+    properties: {
+      file: {
+        value: 'curso'
+      },
+			tab: {
+				value: 0
+			}
+    }
+
+  })
+  </script>
+</dom-module>

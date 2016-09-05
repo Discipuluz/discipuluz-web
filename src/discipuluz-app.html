@@ -13,6 +13,7 @@
 
 <link rel="import" href="discipuluz-pages/discipuluz-home.html">
 <link rel="import" href="discipuluz-pages/discipuluz-contact.html">
+<link rel="import" href="discipuluz-pages/discipuluz-course.html">
 <link rel="import" href="discipuluz-pages/discipuluz-quiz-jung.html">
 <link rel="import" href="discipuluz-pages/discipuluz-quiz-jung-result.html">
 <link rel="import" href="discipuluz-pages/discipuluz-quiz-jung-more.html">
@@ -39,7 +40,7 @@
 				--paper-slider-active-color: var(--primary-title-color);
 				--paper-slider-knob-color: var(--primary-title-color);
 				--paper-slider-pin-color: var(--primary-title-color);
-				
+
 				font-family: 'Roboto', sans-serif;
 			}
 			discipuluz-header{
@@ -64,7 +65,7 @@
 				margin-top: -30vw;
 			}
 		</style>
-		
+
 		<app-location route="{{route}}"></app-location>
 
 		<img class$="bg [[responsiveClass('small', 'large')]]" src="../images/bg.jpg">
@@ -73,6 +74,7 @@
 			<discipuluz-pages route="[[route]]" subroute="{{subroute}}" page="{{page}}">
 				<discipuluz-home name="inicio"></discipuluz-home>
 				<discipuluz-contact name="contato"></discipuluz-contact>
+				<discipuluz-course name="curso"></discipuluz-course>
 				<discipuluz-pages name="questionario" route="[[subroute]]" subroute="{{jungSubroute}}">
 					<discipuluz-page-list name="jung" route="[[jungSubroute]]" index="{{jungIndex}}" pages="[[jungPages]]">
 						<discipuluz-quiz-jung name="list"></discipuluz-quiz-jung>
