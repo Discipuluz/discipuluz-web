@@ -11,10 +11,14 @@
 				border-left: solid 5px var(--primary-title-color);
 				--paper-card-header-color: var(--primary-title-color);
 			}
+			p{
+				margin: 16px;
+			}
 		</style>
 
 		<paper-card heading="[[title]]">
-			<content></content>
+			<!-- <iron-icon icon="[[icon]]"></iron-icon> -->
+			<p><content></content></p>
 		</paper-card>
 
 	</template>
@@ -23,7 +27,8 @@
 		is: 'discipuluz-card',
 
 		properties:{
-			title: String
+			title: String,
+			icon: String
 		}
 	})
 	</script>

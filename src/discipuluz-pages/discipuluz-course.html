@@ -37,6 +37,30 @@
 				margin: 10px;
 			}
 
+			div.photo{
+				background-color: black;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+			}
+			p{
+				margin: 0;
+			}
+			.photo-content, .text-content{
+				margin: 10px;
+			}
+			a{
+				text-decoration: none;
+				color: var(--primary-text-color);
+			}
+			.depoimento{
+				margin-bottom: 10px;
+				box-shadow: 0px 5px 1px #888888;
+			}
+			.depoimento:hover{
+				background-color: rgb(241, 241, 241);
+				box-shadow: 0px 1px 1px #888888;
+			}
     </style>
 
 	<div class="layout vertical justified">
@@ -66,7 +90,30 @@
 							</paper-tabs>
 							<div class="main-content">
 								<iron-pages attr-for-selected="name" selected="[[tab]]" class="flex">
-									<div name="0">One</div>
+									<div name="0">
+										<div class$="layout [[responsiveClass('vertical', 'horizontal')]] depoimento">
+											<div class$="layout vertical [[responsiveClass('', 'flex')]] center photo-content">
+												<div class="photo" style="background: url('../../images/depoimento/heitor.png');"></div>
+											</div>
+											<div class$="layout vertical [[responsiveClass('', 'flex-4')]] center text-content">
+												<h4>Heitor Raymundo, Unicamp</h4>
+												<p>"Blablabalbal sksksksk fkdkdkdd kdkdkdk dkdkdkd ldkdslkslkslks"</p>
+											</div>
+										</div>
+										<a href="www.google.com" target="_blank"><div class$="layout [[responsiveClass('vertical', 'horizontal')]] depoimento">
+											<div class$="layout vertical [[responsiveClass('', 'flex')]] center photo-content">
+												<div class="photo" style="background: url('../../images/depoimento/heitor.png');"></div>
+											</div>
+											<div class$="layout vertical [[responsiveClass('', 'flex-4')]] center text-content">
+												<h4>André Gonçalves, USP</h4>
+												<p>"Blablabalbal sksksksk fkdkdkdd kdkdkdk dkdkdkd ldkdslkslkslks"</p>
+											</div>
+										</div></a>
+
+									</div>
+
+
+
 									<div name="1">Two</div>
 									<div name="2">Three</div>
 								</iron-pages>
