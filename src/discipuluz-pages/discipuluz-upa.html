@@ -29,6 +29,10 @@
 			paper-radio-button{
 				--paper-radio-button-checked-color: var(--primary-title-color);
 			}
+
+			a{
+				text-decoration: none;
+			}
       .justified{
         text-align: center;
       }
@@ -54,8 +58,35 @@
 			.intro{
 				margin-bottom: 20px;
 			}
-			p{
-				text-align: justify;
+
+			.icon{
+				color: var(--primary-title-color);
+				font-size: 3rem;
+			}
+			iron-icon{
+				width: 100px;
+				height: 100px;
+				color: var(--primary-title-color);
+			}
+			iron-icon.flex{
+				width: 50px;
+				height: 50px;
+				color: white;
+			}
+
+			div.social{
+				margin: 10px;
+			}
+			div.fb{
+				border-radius: 10px;
+				background-color: #3b5998;
+				color: white;
+			}
+
+			div.wp{
+				border-radius: 10px;
+				background-color: var(--primary-title-color);;
+				color: white;
 			}
     </style>
 
@@ -139,11 +170,31 @@
 				</div>
 				<div class="layout horizontal flex-1"></div>
 				<div class="layout vertical flex-4">
-					<discipuluz-card class="flex" icon="device:gps-fixed" title="[[localize('goals-title')]]" action="Sei lah">
-						<html-escape text="[[localize('goals-text')]]"></html-escape>
+					<discipuluz-card class="flex" title="[[localize('goals-title')]]">
+						<div class="layout vertical center">
+							<iron-icon icon="loyalty"></iron-icon>
+							<html-escape text="[[localize('goals-text')]]"></html-escape>
+						</div>
 					</discipuluz-card>
-					<discipuluz-card class="flex" icon="device:gps-fixed" title="[[localize('social-title')]]" action="Sei lah">
+					<discipuluz-card class="flex" title="[[localize('social-title')]]">
 						<html-escape text="[[localize('social-text')]]"></html-escape>
+						<a href="https://www.facebook.com/discipuluzoficial" target="_blank">
+							<div class="layout horizontal center social fb">
+								<div><iron-icon class="flex" icon="fa-brand:facebook-square"></iron-icon></div>
+								<p>
+									Acompanhe nossos posts no Facebook
+								</p>
+							</div>
+						</a>
+						<a href="http://www.somostodosaprendizes.com.br/blog/" target="_blank">
+							<div class="layout horizontal center social wp">
+								<div><iron-icon class="flex" icon="social:pages"></iron-icon></div>
+								<p>
+									Conheça o blog "Somos todos aprendizes"
+								</p>
+							</div>
+						</a>
+
 					</discipuluz-card>
 				</div>
 				<div class="layout horizontal flex-1"></div>
