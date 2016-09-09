@@ -91,23 +91,29 @@
     </style>
 
 		<div class="layout vertical">
-			<div class="intro">
+			<div class="layout vertical intro">
 				<div class="layout horizontal center">
-					<div class="layout horizontal flex-1"></div>
+					<div class="layout flex-1"></div>
 					<div class="layout horizontal flex-3 image">
 						<img src="../../images/upa.png"/>
 					</div>
 					<div class="layout vertical flex-7 welcome-text">
-						<h3>Olar, tudo bem?</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur purus arcu, eget gravida quam dictum id.
-							Donec at felis vitae tortor commodo tincidunt quis non justo. Praesent cursus venenatis sapien.
-							Maecenas placerat ex id sodales pulvinar. Vestibulum justo leo, aliquet convallis hendrerit id, scelerisque ac felis.
-							Sed id felis at sem posuere commodo at at dui. Duis massa mi, volutpat ac elit ut, tincidunt congue ligula.
-							Quisque id nulla at sem consequat placerat vitae quis urna. Mauris sapien tortor, accumsan ac metus a, tempor pretium quam.
-						</p>
+						<h3><html-escape text="[[localize('thanks-title')]]"></html-escape></h3>
+						<p><html-escape text="[[localize('thanks-text')]]"></html-escape></p>
 					</div>
-					<div class="layout horizontal flex-1"></div>
+					<div class="layout flex-1"></div>
+				</div>
+				<div class="layout horizontal">
+					<div class="layout flex-1"></div>
+					<div class="layout vertical center flex-10 welcome-text">
+						<h2><html-escape text="[[localize('intro-title')]]"></html-escape></h2>
+						<p><html-escape text="[[localize('intro-text')]]"></html-escape></p>
+						<p><html-escape text="[[localize('how-text')]]"></html-escape></p>
+						<p><html-escape text="[[localize('what-text')]]"></html-escape></p>
+						<p style="font-size: 1.2em"><html-escape text="[[localize('cta-text')]]"></html-escape></p>
+					</div>
+					<div class="layout flex-1"></div>
+				</div>
 				</div>
 			</div>
 

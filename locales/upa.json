@@ -1,7 +1,12 @@
 {
 	"pt": {
-		"intro-title": "Início",
-		"intro-text": "Faça nosso Questionário",
+		"thanks-title": "Olá de novo!",
+		"thanks-text": "Como estudantes da Unicamp, nós da Discipuluz esperamos que a Unicamp de Portas Abertas tenha deixado sua cabeça lotada de possibilidades de cursos para prestar e também tenha te dado um gostinho de <strong><span style='color:#99D353'>como é estar na universidade</span></strong>.<br><br>Mas toda essa experiência não precisa acontecer uma vez por ano! Quer continuar conhecendo os cursos da Unicamp diretamente da fonte? Olha o que temos para você...",
+		"intro-title": "Conheça a vida na universidade (de verdade)",
+		"intro-text": "São muito comum casos em que as pessoas escolhem um curso que parece ter tudo a ver com elas, mas descobrem que não era bem assim <strong>quando entram na universidade</strong>.<br><br>Isso ocorre pois existem informações que só descobrimos entrando em contato direto com a vida universitária. Ritmo de estudo, ênfase do curso, estilo dos professores, perfil da faculdade... Se alguma dessas descobertas tardias não condizerem com suas expectativas, você pode começar a não se sentir feliz com a escolha que tomou, mas aí poderá ser <strong>tarde demais</strong> para mudá-la.<br>",
+		"how-text": "E se existisse uma <strong><span style='color:#99D353'>janela para o futuro</span></strong> pela qual você pudesse ver como seria sua vida na faculdade? Isso é possível pelo contato com quem está vivendo lá agora e ninguém melhor para falar de como é a vida na universidade do que um universitário, certo? ",
+		"what-text": "Para isso, a Discipuluz traz para você a <strong><span style='color:#99D353'>Ajuda dos Universitários!</span></strong> A chance de entrar em contato com um estudante do curso da Unicamp que você quiser para tirar todas as suas dúvidas, te dar dicas de estudo, contar as dificuldades que passa lá... tudo para que você possa chegar na faculdade menos perdido(a).",
+		"cta-text": "Gostou da ideia? Preencha as informações abaixo e peça sua Ajuda dos Universitários!",
 		"goals-title": "Nosso compromisso é com você",
 		"goals-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur purus arcu, eget gravida quam dictum id. Donec at felis vitae tortor commodo tincidunt quis non justo. Praesent cursus venenatis sapien.",
 		"social-title": "Nos acompanhe de perto",
