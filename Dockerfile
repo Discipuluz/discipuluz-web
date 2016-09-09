@@ -21,6 +21,6 @@ RUN mv build/unbundled /usr/share/nginx/html/dev
 RUN rm -rf /usr/share/nginx/html/temp
 
 WORKDIR /usr/share/nginx/html/dev
-ONBUILD RUN pypolyback -s
+CMD ["pypolyback", "-s"]
 
 EXPOSE 8888
