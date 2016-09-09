@@ -16,9 +16,9 @@ RUN npm install -g \
 
 ENTRYPOINT ["/usr/bin/polymer"]
 
-RUN mkdir -p /usr/share/nginx/html/prod
-ONBUILD RUN git clone -b prod https://github.com/Discipuluz/discipuluz-web.git
-ONBUILD WORKDIR ./discipuluz-web 
+RUN mkdir -p /usr/share/nginx/html/temp
+COPY ../ /usr/share/nginx/html/temp
+ONBUILD WORKDIR /usr/share/nginx/html/temp
 ONBUILD RUN polymer build
 ONBUILD RUN mv -r build/bundled /usr/share/nginx/html/prod
 ONBUILD RUN rm -rf ./
