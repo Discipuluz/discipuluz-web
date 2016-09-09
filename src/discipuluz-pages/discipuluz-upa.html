@@ -124,12 +124,13 @@
 				<div class="layout horizontal flex-4">
 					<discipuluz-form-mentor class="flex-3 contact-card"
 						title="Requisite a Ajuda dos Universitários"
-						back-title=".."
-						url="http://localhost:8888/web/contact"
+						back-title="Obrigado"
+						url="http://discipuluz.com:8888/web/extra/upa"
 						button-text="[[localize('submit')]]"
 						on-response="_formResponse">
 						<div class="form-front layout vertical">
 							<p>* Campos obrigatórios</p>
+
 							<h3>Vamos precisar conversar com você, pode nos passar seus contatos?</h3>
 							<div class="layout horizontal">
 								<paper-input required class="flex" label="Qual seu nome?*" name="name" error-message="Por favor, preencha este campo."></paper-input>
@@ -138,36 +139,43 @@
 								<paper-input class="flex" label="Coloque aqui o link do seu perfil no Facebook" name="facebook"></paper-input>
 							</div>
 							<div class="layout horizontal">
+								<paper-input class="flex" label="Qual seu celular?" name="phone"></paper-input>
+							</div>
+							<div class="layout horizontal">
 								<gold-email-input required class="flex" auto-validate label="Qual seu email?*"
 									regex="^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$"
 									error-message="Por favor, preencha este campo." name="email"></gold-email-input>
 							</div>
-							<div class="layout horizontal">
-								<paper-input class="flex" label="Qual seu celular?" name="celular"></paper-input>
-							</div>
 
 							<h3>Beleza, mas e aí? Qual curso você gostaria saber mais?</h3>
 							<div class="layout horizontal">
-								<paper-input required class="flex" label="Digite aqui o nome do curso*" name="curso" error-message="Por favor, preencha este campo."></paper-input>
+								<paper-input required class="flex" label="Digite aqui o nome do curso*" name="course" error-message="Por favor, preencha este campo."></paper-input>
 							</div>
 
 							<h3>Tá acabando! Só para finalizar... </h3>
 							<label id="info">Nos conheceu no UPA?</label>
-							<paper-radio-group aria-labelledby="info" class="info">
-								<paper-radio-button name="sim">Sim</paper-radio-button>
-								<paper-radio-button name="nao">Não</paper-radio-button>
-							</paper-radio-group>
+							<!-- <paper-radio-group aria-labelledby="info" class="info">
+								<paper-radio-button name="info">Sim</paper-radio-button>
+								<paper-radio-button name="info">Não</paper-radio-button>
+							</paper-radio-group> -->
+
+							<div style="display:inline">
+								<input type="radio" name="info" value="1"> Sim<br>
+								<input type="radio" name="info" value="0"> Não<br>
+							</div>
+
 							<div class="layout horizontal">
-								<paper-textarea class="flex" label="Comentários" name="message"></paper-textarea>
+								<paper-textarea class="flex" label="Deixe uma mensagem para nós?" name="message"></paper-textarea>
 							</div>
 						</div>
 						<div class="form-back">
 							<p>
-								bla bla bla
+								Em breve entraremos em contato com você :)
 							</p>
 						</div>
 					</discipuluz-form-mentor>
 				</div>
+				<br>
 				<div class="layout horizontal flex-1"></div>
 				<div class="layout vertical flex-4">
 					<discipuluz-card class="flex" title="[[localize('goals-title')]]">
@@ -176,6 +184,7 @@
 							<html-escape text="[[localize('goals-text')]]"></html-escape>
 						</div>
 					</discipuluz-card>
+					<br>
 					<discipuluz-card class="flex" title="[[localize('social-title')]]">
 						<html-escape text="[[localize('social-text')]]"></html-escape>
 						<a href="https://www.facebook.com/discipuluzoficial" target="_blank">
