@@ -21,6 +21,6 @@ RUN mv build/unbundled /usr/share/nginx/html/dev
 RUN rm -rf /usr/share/nginx/html/temp
 WORKDIR /usr/share/nginx/html/dev
 
-CMD ["polymer", "serve"]
+CMD ["serve"]
 
 EXPOSE 8080
