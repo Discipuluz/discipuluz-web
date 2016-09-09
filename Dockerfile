@@ -17,5 +17,5 @@ RUN mkdir -p /usr/share/nginx/html/temp
 COPY . /usr/share/nginx/html/temp
 WORKDIR /usr/share/nginx/html/temp
 RUN polymer build
-RUN mv -r build/unbundled /usr/share/nginx/html/dev
+RUN mv build/unbundled /usr/share/nginx/html/dev
 RUN rm -rf ./
