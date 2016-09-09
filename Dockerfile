@@ -18,9 +18,4 @@ COPY . /usr/share/nginx/html/temp
 WORKDIR /usr/share/nginx/html/temp
 RUN polymer build
 RUN mv build/unbundled /usr/share/nginx/html/dev
-RUN rm -rf /usr/share/nginx/html/temp
-
-WORKDIR /usr/share/nginx/html/dev
-CMD ["pypolyback", "-s"]
-
-EXPOSE 8888
+RUN rm -rf ./
