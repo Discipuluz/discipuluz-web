@@ -1,4 +1,10 @@
 {
 	"entrypoint": "index.html",
-	"shell": "src/discipuluz-app.html"
+	"shell": "src/discipuluz-app.html",
+	"sources": [
+		"src/**/*",
+		"images/**/*",
+		"locales/*",
+		"bower.json"
+	]
 }
