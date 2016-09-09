@@ -50,6 +50,7 @@
 			img{
 				width: 340px;
 				height: 170px;
+				margin-top: 10px;
 			}
 
 			.welcome-text{
@@ -81,6 +82,7 @@
 				border-radius: 10px;
 				background-color: #3b5998;
 				color: white;
+				margin-bottom: : 10px;
 			}
 
 			div.wp{
@@ -92,7 +94,7 @@
 
 		<div class="layout vertical">
 			<div class="layout vertical intro">
-				<div class="layout horizontal center">
+				<div class$="layout [[responsiveClass('vertical', 'horizontal')]] center">
 					<div class="layout flex-1"></div>
 					<div class="layout horizontal flex-3 image">
 						<img src="../../images/upa.png"/>
@@ -117,45 +119,37 @@
 				</div>
 			</div>
 
-			<div class="layout horizontal main-content">
+			<div class$="layout [[responsiveClass('vertical', 'horizontal')]] main-content">
 				<div class="layout horizontal flex-1"></div>
 				<div class="layout horizontal flex-4">
 					<discipuluz-form-mentor class="flex-3 contact-card"
-						title="Requisite seu mentor"
+						title="Requisite a Ajuda dos Universitários"
 						back-title=".."
 						url="http://localhost:8888/web/contact"
 						button-text="[[localize('submit')]]"
 						on-response="_formResponse">
 						<div class="form-front layout vertical">
-
+							<p>* Campos obrigatórios</p>
 							<h3>Vamos precisar conversar com você, pode nos passar seus contatos?</h3>
 							<div class="layout horizontal">
-								<paper-input required class="flex" label="Nome" name="name" error-message=".."></paper-input>
+								<paper-input required class="flex" label="Qual seu nome?*" name="name" error-message="Por favor, preencha este campo."></paper-input>
 							</div>
 							<div class="layout horizontal">
-								<paper-input required class="flex" label="Link do seu Facebook" name="facebook" error-message=".."></paper-input>
+								<paper-input class="flex" label="Coloque aqui o link do seu perfil no Facebook" name="facebook"></paper-input>
 							</div>
 							<div class="layout horizontal">
-								<gold-email-input required class="flex" auto-validate label="Email"
+								<gold-email-input required class="flex" auto-validate label="Qual seu email?*"
 									regex="^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$"
-									error-message=".." name="email"></gold-email-input>
+									error-message="Por favor, preencha este campo." name="email"></gold-email-input>
 							</div>
 							<div class="layout horizontal">
-								<paper-input required class="flex" label="Celular" name="celular" error-message=".."></paper-input>
+								<paper-input class="flex" label="Qual seu celular?" name="celular"></paper-input>
 							</div>
 
-							<h3>Beleza, mas e aí? Qual curso e universidade você gostaria de ter um mentor?</h3>
+							<h3>Beleza, mas e aí? Qual curso você gostaria saber mais?</h3>
 							<div class="layout horizontal">
-								<paper-input required class="flex" label="Curso" name="curso" error-message=".."></paper-input>
+								<paper-input required class="flex" label="Digite aqui o nome do curso*" name="curso" error-message="Por favor, preencha este campo."></paper-input>
 							</div>
-							<label id="universidade">Universidade:</label>
-							<paper-radio-group aria-labelledby="universidade" class="universidade">
-								<paper-radio-button name="unicamp">UNICAMP</paper-radio-button>
-								<paper-radio-button name="usp">USP</paper-radio-button>
-								<paper-radio-button name="ufscar">UFSCar</paper-radio-button>
-								<paper-radio-button name="unesp">UNESP</paper-radio-button>
-								<paper-radio-button name="outro">Outro</paper-radio-button>
-							</paper-radio-group>
 
 							<h3>Tá acabando! Só para finalizar... </h3>
 							<label id="info">Nos conheceu no UPA?</label>
@@ -164,7 +158,7 @@
 								<paper-radio-button name="nao">Não</paper-radio-button>
 							</paper-radio-group>
 							<div class="layout horizontal">
-								<paper-textarea required class="flex" label="Comentários" name="message" error-message=".."></paper-textarea>
+								<paper-textarea class="flex" label="Comentários" name="message"></paper-textarea>
 							</div>
 						</div>
 						<div class="form-back">
@@ -188,7 +182,7 @@
 							<div class="layout horizontal center social fb">
 								<div><iron-icon class="flex" icon="fa-brand:facebook-square"></iron-icon></div>
 								<p>
-									Acompanhe nossos posts no Facebook
+									Acompanhe nossa página no Facebook
 								</p>
 							</div>
 						</a>
@@ -196,7 +190,7 @@
 							<div class="layout horizontal center social wp">
 								<div><iron-icon class="flex" icon="social:pages"></iron-icon></div>
 								<p>
-									Conheça o blog "Somos todos aprendizes"
+									Conheça nosso blog "Somos todos aprendizes"
 								</p>
 							</div>
 						</a>
