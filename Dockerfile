@@ -11,8 +11,6 @@ RUN npm install -g \
     polymer-cli \
     bower
 
-ENTRYPOINT ["/usr/bin/polymer"]
-
 RUN mkdir -p /usr/share/nginx/html/temp
 COPY . /usr/share/nginx/html/temp
 WORKDIR /usr/share/nginx/html/temp
@@ -21,6 +19,6 @@ RUN mv build/unbundled /usr/share/nginx/html/dev
 RUN rm -rf /usr/share/nginx/html/temp
 WORKDIR /usr/share/nginx/html/dev
 
-CMD ["serve"]
+CMD ["polymer", "serve"]
 
 EXPOSE 8080
