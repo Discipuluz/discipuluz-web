@@ -21,75 +21,81 @@
 <dom-module id="discipuluz-home">
   <template>
     <style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+		paper-tabs{
+			--paper-tabs-selection-bar-color: var(--primary-title-color);
+		}
 
-			paper-tabs{
-				--paper-tabs-selection-bar-color: var(--primary-title-color);
-			}
+		paper-radio-button{
+			--paper-radio-button-checked-color: var(--primary-title-color);
+		}
 
-			paper-radio-button{
-				--paper-radio-button-checked-color: var(--primary-title-color);
-			}
+		a{
+			text-decoration: none;
+		}
+		.justified{
+			text-align: center;
+		}
+		.main-title{
+			font-weight: 100;
+			color: #777;
+			font-size: 2.5em;
+		}
+		.secondary-title{
+			font-weight: 100;
+			color: #777;
+			font-size: 1.6rem;
+		}
 
-			a{
-				text-decoration: none;
-			}
-      .justified{
-        text-align: center;
-      }
-      .main-title{
-        font-weight: 100;
-        color: #777;
-        font-size: 2.5em;
-      }
-			.secondary-title{
-				font-weight: 100;
-				color: #777;
-				font-size: 1.6em;
-			}
+		img{
+			width: 340px;
+			height: 170px;
+			margin-top: 10px;
+		}
 
-			img{
-				width: 340px;
-				height: 170px;
-				margin-top: 10px;
-			}
-
-			.welcome-text{
+		.welcome-text{
 				margin: 15px;
-			}
-			.intro{
-				margin-bottom: 20px;
-			}
+		}
+		.intro{
+			margin-bottom: 20px;
+		}
 
-			.icon{
-				color: var(--primary-title-color);
-				font-size: 3rem;
-			}
-			iron-icon{
-				width: 100px;
-				height: 100px;
-				color: var(--primary-title-color);
-			}
-			iron-icon.flex{
-				width: 50px;
-				height: 50px;
-				color: white;
-			}
+		.icon{
+			color: var(--primary-title-color);
+			font-size: 3rem;
+		}
+		iron-icon{
+			width: 100px;
+			height: 100px;
+			color: var(--primary-title-color);
+		}
+		iron-icon.flex{
+			width: 50px;
+			height: 50px;
+			color: white;
+		}
 
-			div.social{
-				margin: 10px;
-			}
-			div.fb{
-				border-radius: 10px;
-				background-color: #3b5998;
-				color: white;
-				margin-bottom: : 10px;
-			}
+		div.social{
+			margin: 1rem 0 1.5rem 0;
+			box-shadow: 1px 1px 2px grey; 
+			border-radius: 5px;
+			color: white;
+		}
+		div.social:hover{
+			box-shadow: 2px 2px 3px grey; 
+		}
+		div.social iron-icon{
+			margin-right: 1rem;
+		}
+		div.fb{
+			background-color: #3b5998;
+		}
 
-			div.wp{
-				border-radius: 10px;
-				background-color: var(--primary-title-color);;
-				color: white;
-			}
+		div.wp{
+			background-color: var(--primary-title-color);;
+		}
+		discipuluz-card, discipuluz-form-mentor{
+			margin: 1rem;
+		}
     </style>
 
 		<div class="layout vertical">
@@ -121,7 +127,7 @@
 
 			<div class$="layout [[responsiveClass('vertical', 'horizontal')]] main-content">
 				<div class="layout horizontal flex-1"></div>
-				<div class="layout horizontal flex-4">
+				<div class="layout horizontal flex-5">
 					<discipuluz-form-mentor class="flex-3 contact-card"
 						title="Requisite a Ajuda dos Universitários"
 						back-title="Obrigado"
@@ -177,7 +183,7 @@
 				</div>
 				<br>
 				<div class="layout horizontal flex-1"></div>
-				<div class="layout vertical flex-4">
+				<div class="layout vertical flex-5">
 					<discipuluz-card class="flex" title="[[localize('goals-title')]]">
 						<div class="layout vertical center">
 							<iron-icon icon="loyalty"></iron-icon>
