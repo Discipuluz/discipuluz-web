@@ -6,58 +6,58 @@
 <link rel="import" href="../discipuluz-utils/html-escape.html">
 
 <dom-module id="discipuluz-home">
-  <template>
-    <style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
-      .justified{
-        text-align: center;
-      }
-      .main-title{
-        font-weight: 100;
-        color: #777;
-        font-size: 2.5em;
-      }
-	  .info{
-		min-height: 10rem;
-	  }
-	  .info > :first-child{
-		  font-size: 2rem;
-		  background-color: #98d353;
-		  border-radius: 40px;
-		  width: 100%;
-		  height: 4rem;
-		  color: #f1f1f1;
-	  }
-	  .info > div > p {
-		  font-size: 1.4em;
-		  height: 110px;
-		  text-align: center;
-		  font-weight: 100;
-	  }
-	  strong {
-		  font-weight: 400;
-		  color: #99D353;
-	  }
-    </style>
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+			.justified{
+				text-align: center;
+			}
+			.main-title{
+				font-weight: 100;
+				color: #777;
+				font-size: 2.5em;
+			}
+			.info{
+				min-height: 10rem;
+			}
+			.info > :first-child{
+				font-size: 2rem;
+				background-color: #98d353;
+				border-radius: 40px;
+				width: 100%;
+				height: 4rem;
+				color: #f1f1f1;
+			}
+			.info > div > p {
+				font-size: 1.4em;
+				height: 110px;
+				text-align: center;
+				font-weight: 100;
+			}
+			strong {
+				font-weight: 400;
+				color: #99D353;
+			}
+		</style>
 
-    <div class="layout vertical justified">
-      <h2 class="main-title">[[localize('main-title')]]</h2>
-      <p class="main-text">
-        <html-escape text="[[localize('main-text')]]"></html-escape>
-      </p>
-    </div>
+		<div class="layout vertical justified">
+			<h2 class="main-title">[[localize('main-title')]]</h2>
+			<p class="main-text">
+				<html-escape text="[[localize('main-text')]]"></html-escape>
+			</p>
+		</div>
 	<hr>
 	<div class$="layout vertical">
-	    <div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
-	        <discipuluz-card class="flex" icon="device:gps-fixed" title="[[localize('box-quiz-title')]]" action="[[localize('box-quiz-action')]]">
-	         	<html-escape text="[[localize('box-quiz-content')]]"></html-escape>
-	        </discipuluz-card>
-	        <discipuluz-card class="flex" icon="search" title="[[localize('box-research-title')]]" action="[[localize('box-research-action')]]">
-	         	<html-escape text="[[localize('box-research-content')]]"></html-escape>
-	        </discipuluz-card>
-	        <discipuluz-card class="flex" icon="explore" title="[[localize('box-contact-title')]]" action="[[localize('box-contact-action')]]">
-	         	<html-escape text="[[localize('box-contact-content')]]"></html-escape>
-	        </discipuluz-card>
-	    </div>
+			<div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
+					<discipuluz-card class="flex" icon="device:gps-fixed" title="[[localize('box-quiz-title')]]" action="[[localize('box-quiz-action')]]">
+					 	<html-escape text="[[localize('box-quiz-content')]]"></html-escape>
+					</discipuluz-card>
+					<discipuluz-card class="flex" icon="search" title="[[localize('box-research-title')]]" action="[[localize('box-research-action')]]">
+					 	<html-escape text="[[localize('box-research-content')]]"></html-escape>
+					</discipuluz-card>
+					<discipuluz-card class="flex" icon="explore" title="[[localize('box-contact-title')]]" action="[[localize('box-contact-action')]]">
+					 	<html-escape text="[[localize('box-contact-content')]]"></html-escape>
+					</discipuluz-card>
+			</div>
 		<hr>
 		<div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
 			<div class="layout vertical center-justified flex-3 info">
@@ -79,22 +79,22 @@
 			</div>
 		</div>
 	</div>
-  </template>
+	</template>
 
-  <script>
-  Polymer({
-    is: 'discipuluz-home',
+	<script>
+	Polymer({
+		is: 'discipuluz-home',
 
-    behaviors: [
-      Discipuluz.AppLocalizeBehavior,
-      Discipuluz.AppResponsiveBehavior
-    ],
-    properties: {
-      file: {
-        value: 'home'
-      }
-    }
+		behaviors: [
+			Discipuluz.AppLocalizeBehavior,
+			Discipuluz.AppResponsiveBehavior
+		],
+		properties: {
+			file: {
+				value: 'home'
+			}
+		}
 
-  })
-  </script>
+	})
+	</script>
 </dom-module>
