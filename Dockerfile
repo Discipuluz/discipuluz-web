@@ -20,3 +20,5 @@ RUN polymer build
 # Move to release folder and remove temp folder
 RUN mv build/unbundled /usr/share/nginx/html
 RUN rm -rf /usr/share/nginx/html/temp
+
+VOLUME /usr/share/nginx/html
