@@ -12,13 +12,13 @@ RUN npm install -g \
     bower
 
 # Add project to a temp folder to build it
-RUN mkdir -p /usr/share/nginx/html/temp
-COPY . /usr/share/nginx/html/temp
-WORKDIR /usr/share/nginx/html/temp
+RUN mkdir -p /var/www/html/temp
+COPY . /var/www/html/temp
+WORKDIR /var/www/html/temp
 RUN polymer build
 
 # Move to release folder and remove temp folder
-RUN mv build/unbundled /usr/share/nginx/html
-RUN rm -rf /usr/share/nginx/html/temp
+RUN mv build/unbundled /var/www/html
+RUN rm -rf /var/www/html/temp
 
-VOLUME /usr/share/nginx/html
+VOLUME /var/www/html
