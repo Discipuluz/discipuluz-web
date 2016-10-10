@@ -17,7 +17,7 @@ RUN npm install -g \
 RUN mkdir -p /var/www/html/temp
 COPY . /var/www/html/temp
 WORKDIR /var/www/html/temp
-RUN bower install
+RUN bower install --allow-root
 RUN polymer build
 
 # Move to release folder and remove temp folder
