@@ -6,6 +6,8 @@ FROM node:4
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
+VOLUME /var/www/html
+
 # Install polymer and bower
 RUN npm install -g \
     polymer-cli \
@@ -20,5 +22,3 @@ RUN polymer build
 # Move to release folder and remove temp folder
 RUN mv build/unbundled /var/www/html
 RUN rm -rf /var/www/html/temp
-
-VOLUME /var/www/html
