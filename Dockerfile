@@ -10,7 +10,7 @@ MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 # Install node, polymer and bower
 ENV NODE_VERSION 6.7.0
 
-RUN apk install node=$NODE_VERSION
+RUN apk add --no-cache node=$NODE_VERSION
 
 RUN npm install -g \
     polymer-cli \
