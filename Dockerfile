@@ -17,6 +17,7 @@ RUN npm install -g \
 RUN mkdir -p /var/www/html/temp
 COPY . /var/www/html/temp
 WORKDIR /var/www/html/temp
+RUN ls -la
 RUN bower install --allow-root
 RUN polymer build
 
