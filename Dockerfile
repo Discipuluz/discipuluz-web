@@ -6,8 +6,6 @@ FROM node:6
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-VOLUME /var/www/html
-
 # Install polymer and bower
 RUN npm install -g \
     polymer-cli \
@@ -28,3 +26,8 @@ RUN bower install --allow-root
 
 # Remove temporary content
 RUN rm -rf /var/www/html/temp
+
+# Run Polymer
+CMD ["polymer", "serve"]
+
+EXPOSE 8080
