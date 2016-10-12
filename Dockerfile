@@ -8,9 +8,7 @@ FROM nginx:alpine
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
 # Install node, polymer and bower
-ENV NODE_VERSION 6.2.0
-
-RUN apk add --no-cache nodejs=$NODE_VERSION
+RUN apk add --no-cache nodejs
 
 RUN npm install -g \
     polymer-cli \
