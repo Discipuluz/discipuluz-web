@@ -2,7 +2,7 @@
 # Dockerfile to build Polymer project and move to server
 # Based on oficial nginx Dockerfile
 ########################################################
-FROM node:4
+FROM node:6
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
