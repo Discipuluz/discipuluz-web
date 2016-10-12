@@ -19,7 +19,6 @@ RUN npm install -g \
 RUN mkdir -p /var/www/html/temp
 COPY . /var/www/html/temp
 WORKDIR /var/www/html/temp
-RUN ls -la
 RUN bower install --allow-root
 RUN polymer build
 
@@ -30,9 +29,6 @@ RUN bower install --allow-root
 
 # Remove temporary content
 RUN rm -rf /var/www/html/temp
-
-# Nginx config file
-VOLUME /etc/nginx
 
 # exposing ports 80 for server and 443 for SSL
 EXPOSE 80 443
