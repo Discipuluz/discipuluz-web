@@ -16,7 +16,7 @@ Discipuluz.AppConfigBehavior = {
 		config: Object
 	},
 
-	loadResources: function(path) {
+	loadConfigResources: function(path) {
 		var proto = this.constructor.prototype;
 
 		// If the global ajax object has not been initialized, initialize and cache it.
@@ -52,7 +52,7 @@ Discipuluz.AppConfigBehavior = {
 	},
 
 	attached: function() {
-		this.loadResources(this.resolveUrl('../../config/local.json'))
+		this.loadConfigResources(this.resolveUrl('../../config/local.json'))
 	}
 
 }
