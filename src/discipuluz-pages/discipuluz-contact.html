@@ -19,7 +19,6 @@
 			}
 
 		</style>
-
 		<div class="layout horizontal">
 			<template is="dom-if" if="[[isLargeScreen]]">
 				<div class="flex-2"></div>
@@ -63,6 +62,7 @@
 
 		behaviors: [
 			Discipuluz.AppLocalizeBehavior,
+			Discipuluz.AppConfigBehavior,
 			Discipuluz.AppResponsiveBehavior
 		],
 
