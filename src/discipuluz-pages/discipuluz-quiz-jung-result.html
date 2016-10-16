@@ -79,7 +79,7 @@
 
 				<div class="layout horizontal center-center">
                     <a href="/questionario/jung/saibamais">
-                        <paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm"> 
+                        <paper-button class$="[[responsiveClass('flex')]]" raised on-tap="_submitForm">
                             <span>[[localize('more')]]</span>
                             <iron-icon icon="social:school"></iron-icon>
                         </paper-button>
@@ -93,7 +93,7 @@
                 <discipuluz-form class="flex-3"
                     title="[[localize('form-title')]]"
 				    back-title="[[localize('form-success-title')]]"
-                    url="http://localhost:8888/web/jung/result"
+                    url="/web/jung/result"
                     button-text="[[localize('form-submit')]]"
                     on-response="_formResponse">
                     <div class="layout vertical form-content form-front">
@@ -106,12 +106,12 @@
                             </div>
                             <div class="layout horizontal">
                                 <paper-slider class="layout horizontal"
-                                    name="feedback" 
-                                    min="0" 
-                                    max="10" 
-                                    value="5" 
+                                    name="feedback"
+                                    min="0"
+                                    max="10"
+                                    value="5"
                                     step="1"
-                                    pin 
+                                    pin
                                     required>
                                 </paper-slider>
                             </div>
@@ -128,7 +128,7 @@
                 </template>
             </div>
         </div>
-		
+
 	</template>
 
 
@@ -167,7 +167,7 @@
 				value: 'quiz-jung-result'
 			}
 		},
-        
+
         _computeResult: function(results, result){
             return results[result]
         },
