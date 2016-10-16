@@ -1,19 +1,34 @@
 ########################################################
 # Dockerfile to build Polymer project and move to server
+# Also starts nginx server
 # Based on oficial nginx Dockerfile
 ########################################################
-FROM node:4
+FROM nginx:alpine
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-# Install polymer and bower
+# Install node, polymer and bower
+RUN apk add --no-cache git
+RUN apk add --no-cache nodejs
+
 RUN npm install -g \
     polymer-cli \
     bower
 
-RUN mkdir -p /usr/share/nginx/html/temp
-COPY . /usr/share/nginx/html/temp
-WORKDIR /usr/share/nginx/html/temp
+# Add project to a temp folder to build it
+RUN mkdir -p /var/www/html/temp
+COPY . /var/www/html/temp
+WORKDIR /var/www/html/temp
+RUN bower install --allow-root
 RUN polymer build
-RUN mv build/unbundled /usr/share/nginx/html/dev
-RUN rm -rf /usr/share/nginx/html/temp
+
+# Move to release folder
+WORKDIR /var/www/html
+RUN mv /var/www/html/temp/build/unbundled/* /var/www/html
+RUN bower install --allow-root
+
+# Remove temporary content
+RUN rm -rf /var/www/html/temp
+
+# exposing ports 80 for server and 443 for SSL
+EXPOSE 80 443
