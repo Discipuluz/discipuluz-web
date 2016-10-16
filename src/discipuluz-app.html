@@ -11,7 +11,7 @@
 <link rel="import" href="discipuluz-layout/discipuluz-content.html">
 <link rel="import" href="discipuluz-layout/discipuluz-footer.html">
 <link rel="import" href="discipuluz-layout/discipuluz-pages.html">
-<!--<link rel="import" href="discipuluz-layout/discipuluz-page-list.html">-->
+<link rel="import" href="discipuluz-layout/discipuluz-page-list.html">
 
 <link rel="import" href="discipuluz-pages/discipuluz-home-upa.html">
 <link rel="import" href="discipuluz-pages/discipuluz-contact.html">
@@ -78,7 +78,7 @@
 				<discipuluz-contact name="contato"></discipuluz-contact>
 				<discipuluz-course name="curso"></discipuluz-course>
 				<discipuluz-pages name="questionario" route="[[subroute]]" subroute="{{jungSubroute}}">
-					<discipuluz-page-list name="jung" route="[[jungSubroute]]" index="{{jungIndex}}" pages="[[jungPages]]">
+					<discipuluz-page-list name="jung" route="[[jungSubroute]]" index="{{jungIndex}}" exceptions="[[jungPages]]">
 						<discipuluz-quiz-jung name="list"></discipuluz-quiz-jung>
 						<discipuluz-quiz-jung-result name="item" result="[[jungIndex]]"></discipuluz-quiz-jung-result>
 						<discipuluz-quiz-jung-more name="saibamais"></discipuluz-quiz-jung-more>
