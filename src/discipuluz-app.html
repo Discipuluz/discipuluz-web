@@ -89,13 +89,16 @@
 			},
 
 			attached: function(){
+				//google analytics
+	  			ga('create', 'UA-78017331-1', 'auto')
+
 				this.$.pagemanager.addEventListener('page-change', (e) => {
 					page = e.detail.path.split('/')[1] || '__inicio__'
 					this.set('page', page)
 
 					//google analytics
-					ga('set', 'page', e.detail.path);
-					ga('send', 'pageview');
+					ga('set', 'page', e.detail.path)
+					ga('send', 'pageview')
 				})
 			}
 		});
