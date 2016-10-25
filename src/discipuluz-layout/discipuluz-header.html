@@ -75,7 +75,7 @@
 				</template>
 				<template is="dom-if" if="[[isLargeScreen]]">
 					<paper-tabs selectable="paper-tab" attr-for-selected="name" selected="{{page}}" class="flex-1">
-						<paper-tab name="inicio" link>
+						<paper-tab name="__inicio__" link>
 							<a href="/" tabindex="-1">[[localize('home-title')]]</a>
 						</paper-tab>
 						<paper-tab name="questionario" link>
@@ -99,7 +99,7 @@
 			<discipuluz-logo class="flex-7"></discipuluz-logo>
 		</app-toolbar>
 		<iron-selector attr-for-selected="name" selected="{{page}}">
-			<app-toolbar class="drawer-option" name="inicio">
+			<app-toolbar class="drawer-option" name="__inicio__">
 				<a href="/" tabindex="-1">[[localize('home-title')]]</a>
 			</app-toolbar>
 			<app-toolbar class="drawer-option" name="questionario">

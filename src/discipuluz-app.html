@@ -90,7 +90,8 @@
 
 			attached: function(){
 				this.$.pagemanager.addEventListener('page-change', (e) => {
-					this.set('page', e.detail.path.split('/')[1])
+					page = e.detail.path.split('/')[1] || '__inicio__'
+					this.set('page', page)
 				})
 			}
 		});
