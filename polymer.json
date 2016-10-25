@@ -2,6 +2,7 @@
 	"entrypoint": "index.html",
 	"shell": "src/discipuluz-app.html",
 	"sources": [
+		"src/sitemap.json",
 		"src/**/*",
 		"images/**/*",
 		"locales/*",
