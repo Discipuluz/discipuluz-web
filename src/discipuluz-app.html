@@ -2,14 +2,20 @@
 <link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 
+<link rel="import" href="../bower_components/neon-animation/animations/slide-from-left-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+
+<link rel="import" href="../bower_components/ce-page-manager/ce-page-manager.html">
+
 <link rel="import" href="discipuluz-utils/discipuluz-localize-behavior.html">
 <link rel="import" href="discipuluz-utils/discipuluz-config-behavior.html">
 <link rel="import" href="discipuluz-utils/discipuluz-responsive-behavior.html">
 <link rel="import" href="discipuluz-utils/discipuluz-util-classes.html">
 
-<!--<link rel="import" href="discipuluz-layout/discipuluz-header.html">-->
+<link rel="import" href="discipuluz-layout/discipuluz-header.html">
 <link rel="import" href="discipuluz-layout/discipuluz-content.html">
 <link rel="import" href="discipuluz-layout/discipuluz-footer.html">
+<<<<<<< HEAD
 <link rel="import" href="discipuluz-layout/discipuluz-pages.html">
 <link rel="import" href="discipuluz-layout/discipuluz-page-list.html">
 
@@ -21,6 +27,8 @@
 <link rel="import" href="discipuluz-pages/discipuluz-quiz-jung-more.html">
 <link rel="import" href="discipuluz-pages/discipuluz-quiz-holland.html">
 
+=======
+>>>>>>> 1c5a37a75fb255e14ea69a3f5c0e5e71a8e6e9ea
 
 <dom-module id="discipuluz-app">
 	<template>
@@ -64,15 +72,16 @@
 				margin-top: 0;
 			}
 			.bg.large{
-				margin-top: -30vw;
+				margin-top: -10vh;
 			}
 		</style>
 
 		<app-location route="{{route}}"></app-location>
 
-		<img class$="bg [[responsiveClass('small', 'large')]]" src="../images/bg.jpg">
-		<!-- <discipuluz-header page="[[page]]"></discipuluz-header> -->
+		<img class$="bg [[responsiveClass('small', 'large')]]" src="/images/bg[[responsiveClass('-mobile')]].png">
+		<discipuluz-header page="[[page]]"></discipuluz-header>
 		<discipuluz-content page="[[page]]">
+<<<<<<< HEAD
 			<discipuluz-pages route="[[route]]" subroute="{{subroute}}" page="{{page}}">
 				<discipuluz-home name="inicio"></discipuluz-home>
 				<discipuluz-contact name="contato"></discipuluz-contact>
@@ -89,6 +98,15 @@
 					<discipuluz-course name="item" course="[[courseIndex]]"></discipuluz-quiz-jung-result>
 				</discipuluz-page-list>
 			</discipuluz-pages>
+=======
+			<ce-page-manager
+				id="pagemanager"
+				site-map="/src/sitemap.json"
+				pages-dir="/src/discipuluz-pages"
+				entry-animation="slide-from-left-animation"
+				exit-animation="fade-out-animation">
+			</ce-page-manager>
+>>>>>>> 1c5a37a75fb255e14ea69a3f5c0e5e71a8e6e9ea
 		</discipuluz-content>
 		<discipuluz-footer page="[[page]]"></discipuluz-footer>
 
@@ -103,10 +121,24 @@
 			],
 
 			properties: {
-				jungPages: {
-					type: Object,
-					value: ['saibamais']
+				page: {
+					type: String
 				}
+			},
+
+			attached: function(){
+				//google analytics
+	  			ga('create', 'UA-78017331-1', 'auto')
+
+				this.$.pagemanager.addEventListener('page-change', (e) => {
+					//setting page property
+					page = e.detail.path.split('/')[1] || '__inicio__'
+					this.set('page', page)
+
+					//google analytics
+					ga('set', 'page', e.detail.path)
+					ga('send', 'pageview')
+				})
 			}
 		});
 	</script>

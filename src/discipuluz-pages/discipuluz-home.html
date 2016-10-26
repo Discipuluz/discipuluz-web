@@ -11,7 +11,7 @@
 			.justified{
 				text-align: center;
 			}
-			.main-title{
+			h2{
 				font-weight: 100;
 				color: #777;
 				font-size: 2.5em;
@@ -19,7 +19,7 @@
 			.info{
 				min-height: 10rem;
 			}
-			.info > :first-child{
+			.info > *:first-child{
 				font-size: 2rem;
 				background-color: #98d353;
 				border-radius: 40px;
@@ -37,48 +37,72 @@
 				font-weight: 400;
 				color: #99D353;
 			}
+			discipuluz-card{
+				padding: 1rem;
+			}
+			discipuluz-card div{
+				padding: 1rem;
+			}
+			section{
+				margin-bottom: 4rem;
+			}
 		</style>
 
-		<div class="layout vertical justified">
-			<h2 class="main-title">[[localize('main-title')]]</h2>
-			<p class="main-text">
-				<html-escape text="[[localize('main-text')]]"></html-escape>
-			</p>
-		</div>
-	<hr>
-	<div class$="layout vertical">
-			<div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
+		<div class="layout horizontal">
+			<template is="dom-if" if="[[isLargeScreen]]">
+				<div class="flex-1"></div>
+			</template>
+			<div class="layout vertical justified flex-7">
+				<section>
+					<h2 class="flex">[[localize('main-title')]]</h2>
+					<p class="flex">
+						<html-escape text="[[localize('main-text')]]"></html-escape>
+					</p>
+				</section>
+				
+				<section class$="layout [[responsiveClass('vertical', 'horizontal')]]">
 					<discipuluz-card class="flex" icon="device:gps-fixed" title="[[localize('box-quiz-title')]]" action="[[localize('box-quiz-action')]]">
-					 	<html-escape text="[[localize('box-quiz-content')]]"></html-escape>
+						<div>
+							<html-escape text="[[localize('box-quiz-content')]]"></html-escape>
+						</div>
 					</discipuluz-card>
 					<discipuluz-card class="flex" icon="search" title="[[localize('box-research-title')]]" action="[[localize('box-research-action')]]">
-					 	<html-escape text="[[localize('box-research-content')]]"></html-escape>
+						<div>
+							<html-escape text="[[localize('box-research-content')]]"></html-escape>
+						</div>
 					</discipuluz-card>
 					<discipuluz-card class="flex" icon="explore" title="[[localize('box-contact-title')]]" action="[[localize('box-contact-action')]]">
-					 	<html-escape text="[[localize('box-contact-content')]]"></html-escape>
+						<div>
+							<html-escape text="[[localize('box-contact-content')]]"></html-escape>
+						</div>
 					</discipuluz-card>
+				</section>
+				<section class$="layout [[responsiveClass('vertical', 'horizontal')]]">
+					<div class="flex"></div>
+					<div class="layout vertical center-justified flex-4 info">
+						<div class="layout horizontal center-justified center">
+							<html-escape text="[[localize('box-info-title-1')]]"></html-escape>
+						</div>
+						<div>
+							<p><html-escape text="[[localize('box-info-content-1')]]"></html-escape></p>
+						</div>
+					</div>
+					<div class="flex"></div>
+					<div class="layout vertical center-justified flex-4 info">
+						<div class="layout horizontal center-justified center">
+							<html-escape text="[[localize('box-info-title-2')]]"></html-escape>
+						</div>
+						<div>
+							<p><html-escape text="[[localize('box-info-content-2')]]"></html-escape></p>
+						</div>
+					</div>
+					<div class="flex"></div>
+				</section>
 			</div>
-		<hr>
-		<div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
-			<div class="layout vertical center-justified flex-3 info">
-				<div class="layout horizontal center-justified center">
-					<html-escape text="[[localize('box-info-title-1')]]"></html-escape>
-				</div>
-				<div>
-					<p><html-escape text="[[localize('box-info-content-1')]]"></html-escape></p>
-				</div>
-			</div>
-			<div class="flex"></div>
-			<div class="layout vertical center-justified flex-3 info">
-				<div class="layout horizontal center-justified center">
-					<html-escape text="[[localize('box-info-title-2')]]"></html-escape>
-				</div>
-				<div>
-					<p><html-escape text="[[localize('box-info-content-2')]]"></html-escape></p>
-				</div>
-			</div>
+			<template is="dom-if" if="[[isLargeScreen]]">
+				<div class="flex-1"></div>
+			</template>
 		</div>
-	</div>
 	</template>
 
 	<script>

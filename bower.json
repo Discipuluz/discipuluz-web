@@ -29,7 +29,9 @@
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.4.0",
     "paper-item": "PolymerElements/paper-item#^1.2.1",
     "paper-menu": "PolymerElements/paper-menu#^1.2.2",
-    "paper-listbox": "PolymerElements/paper-listbox#^1.1.2"
+    "paper-listbox": "PolymerElements/paper-listbox#^1.1.2",
+    "ce-json-file": "*",
+    "ce-page-manager": "*"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

@@ -54,7 +54,7 @@
 				<div class="layout vertical center-center">
                     <p>[[localize('description')]]</p>
                     <p>
-                        <h1>[[result]]</h1>
+                        <h1>[[query]]</h1>
                         <br>
                         <h2>[[_result.tags]]</h2>
                     </p>
@@ -143,10 +143,10 @@
 		],
 
 		properties: {
-            result: String,
+            query: String,
             _result: {
                 type: Object,
-                computed: '_computeResult(results, result)'
+                computed: '_computeResult(results, query)'
             },
 			results: {
 				type: Object,
@@ -168,8 +168,8 @@
 			}
 		},
 
-        _computeResult: function(results, result){
-            return results[result]
+        _computeResult: function(results, query){
+            return results[query]
         },
 
 		_submitForm: function(){

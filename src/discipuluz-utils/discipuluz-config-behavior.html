@@ -1,60 +1,29 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/ce-json-file/ce-json-file-behavior.html">
 
 <script>
 
 window.Discipuluz = window.Discipuluz || {}
 
-Discipuluz.AppConfigBehavior = {
-	__configCache: {
-		requests: {},  /* One iron-request per unique resources path. */
-		messages: {},  /* Unique localized strings. Invalidated when the language, formats or resources change. */
-		ajax: null     /* Global iron-ajax object used to request resource files. */
-	},
+Discipuluz.AppConfigBehaviorImpl = {
 
 	properties:{
-		config: Object
-	},
-
-	loadResources: function(path) {
-		var proto = this.constructor.prototype;
-
-		// If the global ajax object has not been initialized, initialize and cache it.
-		var ajax = proto.__configCache.ajax;
-		if (!ajax) {
-			ajax = proto.__configCache.ajax = document.createElement('iron-ajax');
-		}
-
-		var request = proto.__configCache.requests[path];
-		if (!request) {
-			ajax.url = path;
-			var request = ajax.generateRequest();
-
-			request.completes.then(
-					this.__onConfigRequestResponse.bind(this),
-					this.__onConfigRequestError.bind(this));
-
-			// Cache the instance so that it can be reused if the same path is loaded.
-			proto.__configCache.requests[path] = request;
-		} else {
-			request.completes.then(
-					this.__onConfigRequestResponse.bind(this),
-					this.__onConfigRequestError.bind(this));
+		path: {
+			value: '../../config/local.json'
+		},
+		config: {
+			type: Object,
+			computed: '_computeConfig(json)',
+			notify: true
 		}
 	},
-	__onConfigRequestResponse: function(event) {
-		this.config = event.response;
-		this.fire('app-resources-loaded');
-	},
 
-	__onConfigRequestError: function(event) {
-		this.fire('app-resources-error');
-	},
-
-	attached: function() {
-		this.loadResources(this.resolveUrl('../../config/local.json'))
+	_computeConfig: function() {
+		return this.json
 	}
 
 }
+
+Discipuluz.AppConfigBehavior = [CustomElements.AppJsonBehavior, Discipuluz.AppConfigBehaviorImpl]
 
 </script>

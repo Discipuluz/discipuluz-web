@@ -1,0 +1,16 @@
+{
+    "": "discipuluz-home",
+    "curso": "discipuluz-course",
+    "questionario": {
+        "jung": {
+            "": "discipuluz-quiz-jung",
+            "saibamais": "discipuluz-quiz-jung-more",
+            "*": "discipuluz-quiz-jung-result"
+        },
+        "holland": {
+            "": "discipuluz-quiz-holland",
+            "*": "discipuluz-quiz-holland-result"
+        }
+    },
+    "contato": "discipuluz-contact"
+}
