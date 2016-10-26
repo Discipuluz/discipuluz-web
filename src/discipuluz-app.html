@@ -11,7 +11,7 @@
 <link rel="import" href="discipuluz-layout/discipuluz-content.html">
 <link rel="import" href="discipuluz-layout/discipuluz-footer.html">
 <link rel="import" href="discipuluz-layout/discipuluz-pages.html">
-<!--<link rel="import" href="discipuluz-layout/discipuluz-page-list.html">-->
+<link rel="import" href="discipuluz-layout/discipuluz-page-list.html">
 
 <link rel="import" href="discipuluz-pages/discipuluz-home-upa.html">
 <link rel="import" href="discipuluz-pages/discipuluz-contact.html">
@@ -76,7 +76,6 @@
 			<discipuluz-pages route="[[route]]" subroute="{{subroute}}" page="{{page}}">
 				<discipuluz-home name="inicio"></discipuluz-home>
 				<discipuluz-contact name="contato"></discipuluz-contact>
-				<discipuluz-course name="curso"></discipuluz-course>
 				<discipuluz-pages name="questionario" route="[[subroute]]" subroute="{{jungSubroute}}">
 					<discipuluz-page-list name="jung" route="[[jungSubroute]]" index="{{jungIndex}}" pages="[[jungPages]]">
 						<discipuluz-quiz-jung name="list"></discipuluz-quiz-jung>
@@ -85,6 +84,10 @@
 					</discipuluz-page-list>
 					<discipuluz-quiz-holland name="holland"></discipuluz-quiz-holland>
 				</discipuluz-pages>
+				<discipuluz-page-list name="cursos" route="[[subroute]]" index="{{courseIndex}}" pages="[[coursePages]]">
+					<!--discipuluz-courses-list name="list"></discipuluz-courses-list-->
+					<discipuluz-course name="item" course="[[courseIndex]]"></discipuluz-quiz-jung-result>
+				</discipuluz-page-list>
 			</discipuluz-pages>
 		</discipuluz-content>
 		<discipuluz-footer page="[[page]]"></discipuluz-footer>

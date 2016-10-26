@@ -63,8 +63,22 @@
 			}
     </style>
 
+		<iron-ajax
+		auto
+		id="courseRequest"
+		url="http://test.discipuluz.com/web/courses/get"
+		body='{"name":"[[course]]"}'
+		method="post"
+		content-type="application/json"
+		handle-as="json"
+		last-response="{{ajaxResponse}}"></iron-ajax>
+
 	<div class="layout vertical justified">
-	  <h2 class="main-title">Ciência da Computação</h2>
+	  <h2 class="main-title">
+			<template is="dom-repeat" items="[[ajaxResponse.course]]">
+					<p>[[item.name]]</p>
+			</template>
+		</h2>
 
 	  <div class$="layout [[responsiveClass('vertical', 'horizontal')]]">
 		  <div class="layout vertical flex-2 info">
@@ -72,11 +86,9 @@
 			  <div class="about">
 					<paper-card>
 						<div class="card-content">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum placerat justo. In finibus dolor vel tellus maximus tempus. Sed pellentesque magna ut dui tempus faucibus. Nunc ex est, efficitur at venenatis ut, placerat in velit. Cras efficitur imperdiet ornare. Fusce imperdiet quam ut erat ultrices, quis pretium lacus ultricies. Vestibulum quis egestas tortor. Sed suscipit maximus lacus vitae eleifend.
-							<br>
-							Vivamus viverra tellus non turpis sagittis vulputate. Morbi lobortis elit erat, non tempus massa vehicula fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis nec elit euismod, sollicitudin orci quis, vulputate ligula. Vestibulum laoreet mi sed mi facilisis, sed interdum metus commodo. Suspendisse ultricies venenatis sem. Sed varius facilisis gravida. Quisque dapibus mauris ipsum. Nullam sed commodo nisi, nec laoreet risus. Aenean metus lectus, cursus et rhoncus eget, elementum vitae lacus.
-							<br>
-							Donec leo magna, tristique id neque sed, convallis lacinia enim. Duis ultrices velit risus, sit amet dignissim nunc posuere ac. Vivamus id mauris vel odio efficitur lobortis. Vestibulum pulvinar tristique efficitur. Donec ac lacus aliquet, elementum libero ac, egestas sapien. Mauris eu tortor venenatis, interdum risus eget, lobortis lacus. Praesent molestie blandit ipsum eu porttitor. Vivamus tincidunt elit ut lacus ullamcorper, non gravida nulla viverra.
+							<template is="dom-repeat" items="[[ajaxResponse.course]]">
+									<p>[[item.description]]</p>
+							</template>
 						</div>
 					</paper-card>
 			  </div>
@@ -149,8 +161,17 @@
       },
 			tab: {
 				value: 0
+			},
+			course: {
+				type: String,
+				observer: '_changeCourse'
 			}
-    }
+    },
+
+		_changeCourse: function(){
+			this.$.courseRequest.generateRequest()
+		}
+
 
   })
   </script>
