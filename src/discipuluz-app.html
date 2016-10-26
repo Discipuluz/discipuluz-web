@@ -2,6 +2,9 @@
 <link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 
+<link rel="import" href="../bower_components/neon-animation/animations/slide-from-left-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+
 <link rel="import" href="../bower_components/ce-page-manager/ce-page-manager.html">
 
 <link rel="import" href="discipuluz-utils/discipuluz-localize-behavior.html">
@@ -55,19 +58,22 @@
 				margin-top: 0;
 			}
 			.bg.large{
-				margin-top: -30vw;
+				margin-top: -10vh;
 			}
 		</style>
 
 		<app-location route="{{route}}"></app-location>
 
-		<img class$="bg [[responsiveClass('small', 'large')]]" src="../images/bg.jpg">
+		<img class$="bg [[responsiveClass('small', 'large')]]" src="/images/bg[[responsiveClass('-mobile')]].png">
 		<discipuluz-header page="[[page]]"></discipuluz-header>
 		<discipuluz-content page="[[page]]">
 			<ce-page-manager
 				id="pagemanager"
 				site-map="/src/sitemap.json"
-				pages-dir="/src/discipuluz-pages">
+				pages-dir="/src/discipuluz-pages"
+				entry-animation="slide-from-left-animation"
+				exit-animation="fade-out-animation"
+				animate-initial-selection>
 			</ce-page-manager>
 		</discipuluz-content>
 		<discipuluz-footer page="[[page]]"></discipuluz-footer>
@@ -93,6 +99,7 @@
 	  			ga('create', 'UA-78017331-1', 'auto')
 
 				this.$.pagemanager.addEventListener('page-change', (e) => {
+					//setting page property
 					page = e.detail.path.split('/')[1] || '__inicio__'
 					this.set('page', page)
 
