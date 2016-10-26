@@ -7,6 +7,8 @@ FROM nginx:alpine
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
+ENV CONFIG prod
+
 # Install node, polymer and bower
 RUN apk add --no-cache git
 RUN apk add --no-cache nodejs
@@ -25,6 +27,7 @@ RUN polymer build
 # Move to release folder
 WORKDIR /var/www/html
 RUN mv /var/www/html/temp/build/unbundled/* /var/www/html
+RUN cp /var/www/html/config/${CONFIG}.json /var/www/html/config/local.json
 RUN bower install --allow-root
 
 # Remove temporary content
