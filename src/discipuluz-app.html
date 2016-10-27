@@ -15,20 +15,6 @@
 <link rel="import" href="discipuluz-layout/discipuluz-header.html">
 <link rel="import" href="discipuluz-layout/discipuluz-content.html">
 <link rel="import" href="discipuluz-layout/discipuluz-footer.html">
-<<<<<<< HEAD
-<link rel="import" href="discipuluz-layout/discipuluz-pages.html">
-<link rel="import" href="discipuluz-layout/discipuluz-page-list.html">
-
-<link rel="import" href="discipuluz-pages/discipuluz-home-upa.html">
-<link rel="import" href="discipuluz-pages/discipuluz-contact.html">
-<link rel="import" href="discipuluz-pages/discipuluz-course.html">
-<link rel="import" href="discipuluz-pages/discipuluz-quiz-jung.html">
-<link rel="import" href="discipuluz-pages/discipuluz-quiz-jung-result.html">
-<link rel="import" href="discipuluz-pages/discipuluz-quiz-jung-more.html">
-<link rel="import" href="discipuluz-pages/discipuluz-quiz-holland.html">
-
-=======
->>>>>>> 1c5a37a75fb255e14ea69a3f5c0e5e71a8e6e9ea
 
 <dom-module id="discipuluz-app">
 	<template>
@@ -81,24 +67,6 @@
 		<img class$="bg [[responsiveClass('small', 'large')]]" src="/images/bg[[responsiveClass('-mobile')]].png">
 		<discipuluz-header page="[[page]]"></discipuluz-header>
 		<discipuluz-content page="[[page]]">
-<<<<<<< HEAD
-			<discipuluz-pages route="[[route]]" subroute="{{subroute}}" page="{{page}}">
-				<discipuluz-home name="inicio"></discipuluz-home>
-				<discipuluz-contact name="contato"></discipuluz-contact>
-				<discipuluz-pages name="questionario" route="[[subroute]]" subroute="{{jungSubroute}}">
-					<discipuluz-page-list name="jung" route="[[jungSubroute]]" index="{{jungIndex}}" pages="[[jungPages]]">
-						<discipuluz-quiz-jung name="list"></discipuluz-quiz-jung>
-						<discipuluz-quiz-jung-result name="item" result="[[jungIndex]]"></discipuluz-quiz-jung-result>
-						<discipuluz-quiz-jung-more name="saibamais"></discipuluz-quiz-jung-more>
-					</discipuluz-page-list>
-					<discipuluz-quiz-holland name="holland"></discipuluz-quiz-holland>
-				</discipuluz-pages>
-				<discipuluz-page-list name="cursos" route="[[subroute]]" index="{{courseIndex}}" pages="[[coursePages]]">
-					<!--discipuluz-courses-list name="list"></discipuluz-courses-list-->
-					<discipuluz-course name="item" course="[[courseIndex]]"></discipuluz-quiz-jung-result>
-				</discipuluz-page-list>
-			</discipuluz-pages>
-=======
 			<ce-page-manager
 				id="pagemanager"
 				site-map="/src/sitemap.json"
@@ -106,7 +74,6 @@
 				entry-animation="slide-from-left-animation"
 				exit-animation="fade-out-animation">
 			</ce-page-manager>
->>>>>>> 1c5a37a75fb255e14ea69a3f5c0e5e71a8e6e9ea
 		</discipuluz-content>
 		<discipuluz-footer page="[[page]]"></discipuluz-footer>
 
