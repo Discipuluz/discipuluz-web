@@ -5,6 +5,7 @@
         "jung": {
             "": "discipuluz-quiz-jung",
             "saibamais": "discipuluz-quiz-jung-more",
+						"contato": "discipuluz-contact",
             "*": "discipuluz-quiz-jung-result"
         },
         "holland": {

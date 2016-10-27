@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../bower_components/gold-email-input/gold-email-input.html">
+<link rel="import" href="../../bower_components/app-storage/app-storage-behavior.html">
 
 
 <link rel="import" href="../discipuluz-components/discipuluz-form.html">
@@ -37,9 +38,6 @@
 						<gold-email-input required class="flex" auto-validate label="[[localize('email-label')]]"
 							regex="^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$"
 							error-message="[[localize('email-error')]]" name="email"></gold-email-input>
-					</div>
-					<div class="layout horizontal">
-						<paper-textarea required class="flex" label="[[localize('message-label')]]" name="message" error-message="[[localize('message-error')]]"></paper-textarea>
 					</div>
 				</div>
 				<div class="form-back">
