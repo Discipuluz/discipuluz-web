@@ -72,7 +72,8 @@
 				site-map="/src/sitemap.json"
 				pages-dir="/src/discipuluz-pages"
 				entry-animation="slide-from-left-animation"
-				exit-animation="fade-out-animation">
+				exit-animation="fade-out-animation"
+				on-page-change="_updatePage">
 			</ce-page-manager>
 		</discipuluz-content>
 		<discipuluz-footer page="[[page]]"></discipuluz-footer>
@@ -93,19 +94,19 @@
 				}
 			},
 
+			_updatePage: function(e){
+				//setting page property
+				page = e.detail.path.split('/')[1] || '__inicio__'
+				this.set('page', page)
+
+				//google analytics
+				ga('set', 'page', e.detail.path)
+				ga('send', 'pageview')
+			},
+
 			attached: function(){
 				//google analytics
 	  			ga('create', 'UA-78017331-1', 'auto')
-
-				this.$.pagemanager.addEventListener('page-change', (e) => {
-					//setting page property
-					page = e.detail.path.split('/')[1] || '__inicio__'
-					this.set('page', page)
-
-					//google analytics
-					ga('set', 'page', e.detail.path)
-					ga('send', 'pageview')
-				})
 			}
 		});
 	</script>
