@@ -5,6 +5,7 @@
 		"src/sitemap.json",
 		"src/**/*",
 		"images/**/*",
+		"config/*.json",
 		"locales/*",
 		"bower.json"
 	]
