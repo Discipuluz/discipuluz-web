@@ -5,7 +5,7 @@
 <link rel="import" href="../../bower_components/app-storage/app-storage-behavior.html">
 
 
-<link rel="import" href="../discipuluz-components/discipuluz-form.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-form.html">
 
 <dom-module id="discipuluz-contact">
 	<template>
@@ -24,10 +24,10 @@
 			<template is="dom-if" if="[[isLargeScreen]]">
 				<div class="flex-2"></div>
 			</template>
-			<discipuluz-form class="flex-3 contact-card"
+			<discipuluz-card-form class="flex-3 contact-card"
 				title="[[localize('title')]]"
 				back-title="[[localize('success-title')]]"
-				url="[[config.url]]/web/contact/save"
+				url="/web/contact/save"
 				button-text="[[localize('submit')]]"
 				on-response="_formResponse">
 				<div class="form-front layout vertical">
@@ -45,7 +45,7 @@
 						[[localize('success-message')]]
 					</p>
 				</div>
-			</discipuluz-form>
+			</discipuluz-card-form>
 			<template is="dom-if" if="[[isLargeScreen]]">
 				<div class="flex-2"></div>
 			</template>
@@ -60,7 +60,6 @@
 
 		behaviors: [
 			Discipuluz.AppLocalizeBehavior,
-			Discipuluz.AppConfigBehavior,
 			Discipuluz.AppResponsiveBehavior
 		],
 

@@ -4,7 +4,7 @@
 <link rel="import" href="../../bower_components/gold-email-input/gold-email-input.html">
 
 
-<link rel="import" href="../discipuluz-components/discipuluz-form.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-form.html">
 
 <dom-module id="discipuluz-contact">
 	<template>
@@ -28,7 +28,7 @@
 			<template is="dom-if" if="[[isLargeScreen]]">
 				<div class="flex-2"></div>
 			</template>
-			<discipuluz-form class="flex-3 contact-card"
+			<discipuluz-card-form class="flex-3 contact-card"
 				title="[[localize('title')]]"
 				back-title="[[localize('success-title')]]"
 				url="[[config.url]]/web/contact/save"
@@ -52,7 +52,7 @@
 						[[localize('success-message')]]
 					</p>
 				</div>
-			</discipuluz-form>
+			</discipuluz-card-form>
 			<template is="dom-if" if="[[isLargeScreen]]">
 				<div class="flex-2"></div>
 			</template>
@@ -66,7 +66,6 @@
 		is: 'discipuluz-contact',
 
 		behaviors: [
-			Discipuluz.AppConfigBehavior,
 			Discipuluz.AppLocalizeBehavior,
 			Discipuluz.AppResponsiveBehavior
 		],

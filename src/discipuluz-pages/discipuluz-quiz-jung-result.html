@@ -8,7 +8,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
 
-<link rel="import" href="../discipuluz-components/discipuluz-form.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-form.html">
 
 <link rel="import" href="../discipuluz-utils/html-escape.html">
 
@@ -93,7 +93,7 @@
 				<template is="dom-if" if="[[isLargeScreen]]">
 					<div class="flex-2"></div>
 				</template>
-				<discipuluz-form class="flex-3"
+				<discipuluz-card-form class="flex-3"
 					title="[[localize('form-title')]]"
 					back-title="[[localize('form-success-title')]]"
 					url="/web/jung/result"
@@ -125,7 +125,7 @@
 							[[localize('form-success-message')]]
 						</p>
 					</div>
-				</discipuluz-form>
+				</discipuluz-card-form>
 				<template is="dom-if" if="[[isLargeScreen]]">
 					<div class="flex-2"></div>
 				</template>
@@ -173,10 +173,6 @@
 
 		_computeResult: function(results, query){
 			return results[query]
-		},
-
-		_submitForm: function(){
-			this.$.form.submit()
 		},
 
 		_formResponse: function(e){

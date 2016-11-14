@@ -32,7 +32,7 @@
 
 		<app-localstorage-document key="jung-id" data="{{jungId}}"></app-localstorage-document>
 
-		<form is="iron-form" method="post" action="[[config.url]]/web/jung/save" on-iron-form-response="_formResponse" id="form">
+		<discipuluz-form url="/web/quiz/jung/save" on-response="_formResponse" id="form">
 			<div class="layout vertical">
 				<div class="layout horizontal wrap">
 					<template is="dom-repeat" items="[[questions]]" as="question">
@@ -40,7 +40,7 @@
 							<discipuluz-card-option
 								number="[[_addOne(index)]]"
 								title="[[question.question]]"
-								name="question-[[index]]"
+								name="question[[[index]]]"
 								options="[[question.answers]]">
 							</discipuluz-card-option>
 						</div>
@@ -54,7 +54,7 @@
 					</paper-button>
 				</div>
 			</div>
-		</form>
+		</discipuluz-form>
 		<app-localstorage-document key="answers" data="[[question.answers]]">
 		</app-localstorage-document>
 	</template>
@@ -66,7 +66,6 @@
 		is: 'discipuluz-quiz-jung',
 
 		behaviors: [
-			Discipuluz.AppConfigBehavior,
 			Discipuluz.AppResponsiveBehavior,
 			Discipuluz.AppLocalizeBehavior
 		],
