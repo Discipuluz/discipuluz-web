@@ -32,7 +32,8 @@
     "paper-listbox": "PolymerElements/paper-listbox#^1.1.2",
     "ce-json-file": "*",
     "ce-page-manager": "*",
-    "app-storage": "PolymerElements/app-storage#^0.9.7"
+    "app-storage": "PolymerElements/app-storage#^0.9.7",
+    "webcomponentsjs": "^0.7.23"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

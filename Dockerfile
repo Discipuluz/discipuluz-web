@@ -26,9 +26,8 @@ RUN polymer build
 
 # Move to release folder
 WORKDIR /var/www/html
-RUN mv /var/www/html/temp/build/bundled/* /var/www/html
+RUN mv /var/www/html/temp/build/unbundled/* /var/www/html
 RUN cp /var/www/html/config/${CONFIG}.json /var/www/html/config/local.json
-RUN bower install --allow-root
 
 # Remove temporary content
 RUN rm -rf /var/www/html/temp

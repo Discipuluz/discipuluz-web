@@ -1,12 +1,25 @@
 {
 	"entrypoint": "index.html",
 	"shell": "src/discipuluz-app.html",
+	"fragments": [
+		"src/discipuluz-pages/discipuluz-contact.html",
+		"src/discipuluz-pages/discipuluz-course.html",
+		"src/discipuluz-pages/discipuluz-home.html",
+		"src/discipuluz-pages/discipuluz-quiz-holland.html",
+		"src/discipuluz-pages/discipuluz-quiz-jung.html",
+		"src/discipuluz-pages/discipuluz-quiz-jung-contact.html",
+		"src/discipuluz-pages/discipuluz-quiz-jung-more.html",
+		"src/discipuluz-pages/discipuluz-quiz-jung-result.html"
+	],
 	"sources": [
-		"src/sitemap.json",
+		"src/*",
 		"src/**/*",
 		"images/**/*",
 		"config/*.json",
 		"locales/*",
 		"bower.json"
+	],
+	"includeDependencies": [
+		"bower_components/webcomponentsjs/webcomponents-lite.min.js"
 	]
 }
