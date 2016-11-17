@@ -27,10 +27,12 @@ RUN polymer build
 # Move to release folder
 WORKDIR /var/www/html
 RUN mv /var/www/html/temp/build/unbundled/* /var/www/html
-RUN cp /var/www/html/config/${CONFIG}.json /var/www/html/config/local.json
 
 # Remove temporary content
 RUN rm -rf /var/www/html/temp
 
 # exposing ports 80 for server and 443 for SSL
 EXPOSE 80 443
+
+CMD cp /var/www/html/config/${CONFIG}.json /var/www/html/config/local.json && \
+    nginx -g 'daemon off'
