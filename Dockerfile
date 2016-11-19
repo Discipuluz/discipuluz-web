@@ -34,5 +34,4 @@ RUN rm -rf /var/www/html/temp
 # exposing ports 80 for server and 443 for SSL
 EXPOSE 80 443
 
-CMD cp /var/www/html/config/${CONFIG}.json /var/www/html/config/local.json && \
-    nginx -g 'daemon off'
+CMD cp /var/www/html/config/${CONFIG}.json /var/www/html/config/local.json && nginx -g 'daemon off'
